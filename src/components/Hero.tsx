@@ -1,4 +1,48 @@
+import { useState, useEffect } from 'react'
+
+const ROLES = [
+  'Data engineer.',
+  'ML builder.',
+  'Problem solver.',
+  'Infrastructure nerd.',
+]
+
 export default function Hero() {
+  const [roleIndex, setRoleIndex] = useState(0)
+  const [displayed, setDisplayed] = useState('')
+  const [isDeleting, setIsDeleting] = useState(false)
+  const [isPaused, setIsPaused] = useState(false)
+
+  useEffect(() => {
+    if (isPaused) return
+    const current = ROLES[roleIndex]
+
+    const timeout = setTimeout(() => {
+      if (!isDeleting) {
+        const next = current.slice(0, displayed.length + 1)
+        setDisplayed(next)
+        if (next === current) setIsPaused(true)
+      } else {
+        const next = current.slice(0, displayed.length - 1)
+        setDisplayed(next)
+        if (next === '') {
+          setIsDeleting(false)
+          setRoleIndex(prevIndex => (prevIndex + 1) % ROLES.length)
+        }
+      }
+    }, isDeleting ? 45 : 70)
+
+    return () => clearTimeout(timeout)
+  }, [displayed, isDeleting, roleIndex, isPaused])
+
+  useEffect(() => {
+    if (!isPaused) return
+    const timer = setTimeout(() => {
+      setIsPaused(false)
+      setIsDeleting(true)
+    }, 2200)
+    return () => clearTimeout(timer)
+  }, [isPaused])
   return (
     <section id="hero" style={{
       minHeight: '100vh',
@@ -61,8 +105,9 @@ export default function Hero() {
             letterSpacing: '-0.02em',
             color: 'var(--text-secondary)',
             marginBottom: '28px',
+            minHeight: '1.2em',
           }}>
-            Data engineer. Builder. Problem solver.
+            {displayed}<span className="typewriter-cursor" />
           </h2>
 
           <p style={{

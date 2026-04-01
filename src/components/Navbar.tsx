@@ -9,14 +9,38 @@ const NAV_LINKS = [
   { label: 'Contact',     href: '#contact' },
 ]
 
+const SECTION_IDS = ['hero', 'about', 'experience', 'projects', 'reflections', 'cover-letter', 'contact']
+
 export default function Navbar() {
   const [scrolled, setScrolled] = useState(false)
   const [menuOpen, setMenuOpen] = useState(false)
+  const [progress, setProgress] = useState(0)
+  const [activeSection, setActiveSection] = useState('')
 
   useEffect(() => {
-    const onScroll = () => setScrolled(window.scrollY > 20)
-    window.addEventListener('scroll', onScroll)
+    const onScroll = () => {
+      setScrolled(window.scrollY > 20)
+      const el = document.documentElement
+      const scrollHeight = el.scrollHeight - el.clientHeight
+      setProgress(scrollHeight > 0 ? (window.scrollY / scrollHeight) * 100 : 0)
+    }
+    window.addEventListener('scroll', onScroll, { passive: true })
     return () => window.removeEventListener('scroll', onScroll)
+  }, [])
+
+  useEffect(() => {
+    const observers: IntersectionObserver[] = []
+    SECTION_IDS.forEach(id => {
+      const el = document.getElementById(id)
+      if (!el) return
+      const obs = new IntersectionObserver(
+        ([entry]) => { if (entry.isIntersecting) setActiveSection(id) },
+        { rootMargin: '-30% 0px -60% 0px' }
+      )
+      obs.observe(el)
+      observers.push(obs)
+    })
+    return () => observers.forEach(o => o.disconnect())
   }, [])
 
   return (
@@ -34,6 +58,12 @@ export default function Navbar() {
       borderBottom: scrolled ? '1px solid var(--border)' : '1px solid transparent',
       transition: 'all 0.3s ease',
     }}>
+      {/* Reading progress bar */}
+      <div
+        className="progress-bar"
+        style={{ width: `${progress}%` }}
+      />
+
       <div className="container" style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}>
         {/* Logo */}
         <a href="#hero" style={{
@@ -48,19 +78,22 @@ export default function Navbar() {
 
         {/* Desktop links */}
         <div style={{ display: 'flex', gap: '32px', alignItems: 'center' }} className="nav-desktop">
-          {NAV_LINKS.map((link, i) => (
-            <a key={link.href} href={link.href} style={{
-              fontFamily: 'var(--font-mono)',
-              fontSize: '13px',
-              color: 'var(--text-secondary)',
-              transition: 'color 0.2s',
-            }}
-              onMouseEnter={e => (e.currentTarget.style.color = 'var(--accent)')}
-              onMouseLeave={e => (e.currentTarget.style.color = 'var(--text-secondary)')}
-            >
-              <span style={{ color: 'var(--accent)' }}>0{i + 1}.</span> {link.label}
-            </a>
-          ))}
+          {NAV_LINKS.map((link, i) => {
+            const isActive = activeSection === link.href.slice(1)
+            return (
+              <a key={link.href} href={link.href} style={{
+                fontFamily: 'var(--font-mono)',
+                fontSize: '13px',
+                color: isActive ? 'var(--accent)' : 'var(--text-secondary)',
+                transition: 'color 0.2s',
+              }}
+                onMouseEnter={e => (e.currentTarget.style.color = 'var(--accent)')}
+                onMouseLeave={e => (e.currentTarget.style.color = isActive ? 'var(--accent)' : 'var(--text-secondary)')}
+              >
+                <span style={{ color: 'var(--accent)' }}>0{i + 1}.</span> {link.label}
+              </a>
+            )
+          })}
           <a
             href="https://github.com/zzm6899"
             target="_blank"
