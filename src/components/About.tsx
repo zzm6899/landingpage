@@ -1,7 +1,7 @@
 const SKILLS = {
-  Technical: ['Python', 'Java', 'TensorFlow', 'YOLOv5', 'SQL', 'GCP', 'Kubernetes', 'Docker', 'Networking', 'Data Analytics'],
-  'Soft Skills': ['Project Management', 'Stakeholder Communication', 'Problem-Solving', 'Client Engagement', 'Entrepreneurship'],
-  'Currently Learning': ['Google Cloud Associate Engineer', 'Advanced ML Pipelines', 'Kubernetes Orchestration'],
+  Technical: ['Python', 'Java', 'TensorFlow', 'YOLOv5', 'NLP / LLMs', 'SQL', 'GCP', 'Docker', 'Networking', 'Data Analytics'],
+  'Soft Skills': ['Project Management', 'Stakeholder Communication', 'Problem-Solving', 'Client Engagement', 'Team Leadership'],
+  'Currently Working On': ['Honours NLP Research', 'Advanced ML Pipelines', 'Sports & Event Photography'],
 }
 
 export default function About() {
@@ -27,15 +27,17 @@ export default function About() {
               and structured thinking.
             </p>
             <p style={{ color: 'var(--text-secondary)', lineHeight: 1.9, marginBottom: '20px' }}>
-              Throughout my university journey, I have balanced technical development with leadership and
-              professional experience — from contributing to analytical projects at{' '}
-              <span style={{ color: 'var(--text-primary)' }}>KPMG</span>{' '}
-              to cloud-based system designs and ML model development.
+              Alongside my studies I have built real industry experience at{' '}
+              <span style={{ color: 'var(--text-primary)' }}>KPMG Australia</span>,
+              contributed to Honours research in NLP and document intelligence, and run my own
+              photography business as a core team member at Oceania-wide sports events and
+              major conventions like{' '}
+              <span style={{ color: 'var(--text-primary)' }}>SMASH!</span>.
             </p>
             <p style={{ color: 'var(--text-secondary)', lineHeight: 1.9 }}>
-              Beyond academics, I am actively involved in leadership roles, event coordination, and
-              entrepreneurship. I remain motivated, curious, and committed to continuous improvement —
-              approaching every opportunity as a chance to grow both technically and personally.
+              Beyond technical work, I have led teams — as Treasurer of the UTS Taekwondo Society,
+              Sponsorship Director across multiple clubs, and OTD Photographer Lead at large-scale events.
+              I approach every challenge with curiosity, pragmatism, and a drive to actually ship things.
             </p>
 
             <div style={{ marginTop: '32px', display: 'flex', gap: '12px', flexWrap: 'wrap' }}>
@@ -49,7 +51,7 @@ export default function About() {
                 LinkedIn ↗
               </a>
               <a
-                href="mailto:Zacmorgan101@gmail.com"
+                href="mailto:zacmorgan101@gmail.com"
                 className="btn btn-outline"
                 style={{ fontSize: '13px' }}
               >
@@ -89,9 +91,10 @@ export default function About() {
               <div style={{ color: 'var(--text-secondary)', fontSize: '14px', marginBottom: '8px' }}>
                 University of Technology Sydney · 2023 – 2026
               </div>
-              <div style={{ display: 'flex', gap: '12px' }}>
+              <div style={{ display: 'flex', gap: '12px', flexWrap: 'wrap' }}>
                 <span className="tag">GPA: 6.38</span>
                 <span className="tag">WAM: 85.14</span>
+                <span className="tag">Honours Pending</span>
               </div>
             </div>
           </div>

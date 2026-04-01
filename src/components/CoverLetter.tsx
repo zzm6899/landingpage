@@ -67,7 +67,7 @@ export default function CoverLetter() {
               <div style={{ fontWeight: 700, fontSize: '18px', marginBottom: '4px' }}>Zac Morgan</div>
               <div style={{ color: 'var(--text-secondary)', fontSize: '14px' }}>Sydney, NSW, Australia</div>
               <div style={{ color: 'var(--text-secondary)', fontSize: '14px' }}>
-                <a href="mailto:Zacmorgan101@gmail.com">Zacmorgan101@gmail.com</a> · +61 490 163 783
+                <a href="mailto:zacmorgan101@gmail.com">zacmorgan101@gmail.com</a> · +61 490 163 783
               </div>
               <div style={{ color: 'var(--text-secondary)', fontSize: '14px' }}>
                 <a href="https://www.linkedin.com/in/zacmorgan1/" target="_blank" rel="noopener noreferrer">
@@ -138,7 +138,7 @@ export default function CoverLetter() {
             to disaster recovery technology to sustainable construction. The Graduate Program's rotational
             structure aligns perfectly with my goal of building deep, cross-domain engineering experience
             early in my career. I am available at your earliest convenience and can be reached at{' '}
-            <a href="mailto:Zacmorgan101@gmail.com">Zacmorgan101@gmail.com</a> or +61 490 163 783.
+            <a href="mailto:zacmorgan101@gmail.com">zacmorgan101@gmail.com</a> or +61 490 163 783.
           </p>
 
           <p style={{ color: 'var(--text-secondary)', marginBottom: '8px' }}>Yours sincerely,</p>

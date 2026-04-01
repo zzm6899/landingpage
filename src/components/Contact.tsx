@@ -15,8 +15,8 @@ const LINKS = [
   },
   {
     label: 'Email',
-    value: 'Zacmorgan101@gmail.com',
-    href: 'mailto:Zacmorgan101@gmail.com',
+    value: 'zacmorgan101@gmail.com',
+    href: 'mailto:zacmorgan101@gmail.com',
     icon: '✉️',
     desc: 'Get in touch directly',
   },
@@ -78,7 +78,7 @@ export default function Contact() {
             ))}
           </div>
 
-          <a href="mailto:Zacmorgan101@gmail.com" className="btn btn-primary" style={{ fontSize: '15px', padding: '14px 32px' }}>
+          <a href="mailto:zacmorgan101@gmail.com" className="btn btn-primary" style={{ fontSize: '15px', padding: '14px 32px' }}>
             Say Hello ✉️
           </a>
         </div>

@@ -16,65 +16,66 @@ const REFLECTIONS: Reflection[] = [
     date: 'Nov 2025 – Feb 2026',
     sections: [
       {
-        question: 'What were your expectations about your internship before you joined?',
+        question: 'What were your expectations before joining?',
         answer:
-          'Before commencing my internship at KPMG, I expected a highly structured corporate environment ' +
-          'primarily focused on technical accounting and audit procedures. I anticipated that my role would ' +
-          'involve supporting senior team members with spreadsheets, documentation reviews, and structured ' +
-          'analytical tasks. I expected the work to be procedural, with clearly defined instructions and ' +
-          'limited ambiguity. I also assumed that, as an intern, my responsibilities would be relatively ' +
-          'observational and administrative in nature.',
+          'Honestly, I expected it to be quite structured and corporate — lots of spreadsheets, ' +
+          'supporting senior staff, and fairly observational work. I figured as an intern I\'d be ' +
+          'doing the grunt work while the real decisions happened above me. I also assumed the ' +
+          'technical side would be fairly straightforward — maybe some Excel cleaning and report templates.',
       },
       {
-        question: 'What was the reality? How was it different from your expectations?',
+        question: 'What was the reality? How did it differ?',
         answer:
-          'The reality was far more dynamic and collaborative than I had anticipated. KPMG operates in a ' +
-          'fast-paced, project-based environment where client demands and engagement timelines can shift quickly. ' +
-          'Rather than working independently on isolated tasks, I was integrated into team-based engagements ' +
-          'where communication, initiative, and adaptability were essential.\n\n' +
-          'One of the most surprising aspects was the level of responsibility entrusted to interns. I was ' +
-          'assigned meaningful work that contributed directly to engagement outcomes, requiring ownership and ' +
-          'accountability. The workplace environment demanded proactive communication — asking questions, ' +
-          'clarifying expectations, and ensuring alignment with team objectives. The experience highlighted ' +
-          'that professional services is not just about technical competence, but also about stakeholder ' +
-          'management, professionalism, and the ability to perform under pressure.',
+          'Way more dynamic than I expected. I was thrown into a live client engagement almost ' +
+          'immediately — a Long Service Leave remediation project — and was actually responsible for ' +
+          'outputs that fed directly into what the senior managers were presenting to clients. That was ' +
+          'a bit of a shock at first.\n\n' +
+          'The work was also a lot more technically involved than I\'d anticipated. I was writing SQL ' +
+          'stored procedures, building Python automation scripts, and working with messy historical ' +
+          'payroll data that needed careful reconciliation. Nobody handed me a clean dataset — you had ' +
+          'to figure out what was wrong and fix it yourself.\n\n' +
+          'The other thing I didn\'t expect was how much communication mattered. Not just email or ' +
+          'status updates — but really being clear when something didn\'t add up, proactively flagging ' +
+          'issues before they became problems, and knowing when to escalate versus when to work through ' +
+          'something independently.',
       },
       {
-        question: 'What lessons were the most important from your internship? Why were they important?',
+        question: 'What were the most important lessons?',
         answer:
-          'The most important lessons centred around accountability, communication, and adaptability.\n\n' +
-          'Accountability was critical because even minor inaccuracies can have downstream effects in client ' +
-          'deliverables. I learned the importance of reviewing my work thoroughly and taking full responsibility ' +
-          'for outputs.\n\n' +
-          'Communication proved equally essential. Clearly articulating findings, raising potential issues ' +
-          'early, and collaborating effectively improved efficiency and reduced rework.\n\n' +
-          'Adaptability became vital in managing shifting priorities and tight deadlines. In a project-based ' +
-          'environment, being able to adjust quickly while maintaining quality is a key professional skill.\n\n' +
-          'These lessons were important because they extended beyond technical knowledge — they shaped how I ' +
-          'operate within a professional environment.',
+          'Three things stood out.\n\n' +
+          'First — accountability in a compliance environment is real. In audit and advisory work, a ' +
+          'small error in a dataset can cascade into a wrong client deliverable. I got much more ' +
+          'disciplined about reviewing my own work before passing it on.\n\n' +
+          'Second — asking the right question early saves everyone time. I\'d sometimes spend hours ' +
+          'going down a path only to realise I\'d misunderstood the requirement. Learning to clarify ' +
+          'upfront without it feeling like I didn\'t know what I was doing was a real skill to develop.\n\n' +
+          'Third — the technical skills I\'d built at uni were actually useful in the real world, which ' +
+          'was genuinely reassuring. But applying them in a professional context — with real deadlines, ' +
+          'real clients, and real consequences — is a different kind of pressure than a uni assignment.',
       },
       {
-        question: 'After your workplace experience, what would you say your value proposition would be to an employer?',
+        question: 'What is your value proposition to an employer?',
         answer:
-          'Following this experience, my value proposition lies in my ability to combine analytical thinking ' +
-          'with structured execution in high-performance environments. I bring strong technical foundations, ' +
-          'attention to detail, and the ability to integrate quickly into collaborative teams.\n\n' +
-          'I can demonstrate this through measurable engagement contributions, consistent academic performance ' +
-          'in data and analytics subjects, and leadership involvement in extracurricular and professional ' +
-          'activities. My internship experience shows that I can operate within compliance-driven environments, ' +
-          'manage deadlines effectively, and communicate professionally with diverse stakeholders.',
+          'I can move quickly on ambiguous problems. I\'m comfortable with messy data, incomplete ' +
+          'requirements, and figuring things out without needing step-by-step instructions. That\'s ' +
+          'partly from university, partly from running my own photography business, and partly from ' +
+          'managing club finances and sponsorships where there\'s no one above you to ask.\n\n' +
+          'On the technical side, I can write production-quality SQL and Python, I understand how ' +
+          'to design data pipelines end to end, and I\'ve shipped real projects — not just tutorials. ' +
+          'On the professional side, I\'ve worked in a high-stakes client environment and know what ' +
+          'it means to produce work that others will put their name on.',
       },
       {
-        question: 'How did your internship influence the type of role in which you are interested?',
+        question: 'How did this shape what roles you\'re interested in?',
         answer:
-          'The internship significantly clarified my career direction. I developed a strong interest in roles ' +
-          'that blend analytical problem-solving with client interaction — particularly within advisory, ' +
-          'assurance, or data-driven consulting environments.\n\n' +
-          'Rather than pursuing purely technical roles isolated from business context, I am motivated toward ' +
-          'positions where I can apply data and analytical skills to support strategic decision-making and ' +
-          'organisational improvement. The experience confirmed that I thrive in environments that are ' +
-          'structured yet dynamic, collaborative yet accountable — qualities that define professional services ' +
-          'and advisory careers.',
+          'It confirmed that I don\'t want a purely back-end data role where I\'m just building pipelines ' +
+          'in isolation. The part of KPMG I enjoyed most was when the analysis I\'d done actually meant ' +
+          'something — when a reconciliation I\'d built caught an error that would have caused a real ' +
+          'compliance issue. That intersection of technical rigour and business outcome is where I want to be.\n\n' +
+          'I\'m drawn to roles in data engineering, analytics consulting, or applied ML — places where ' +
+          'I\'m solving real problems, not just maintaining infrastructure. Graduate programs like ' +
+          'Industrus Engineering appeal to me specifically because of that variety and the chance to ' +
+          'contribute across different types of projects early on.',
       },
     ],
   },
@@ -85,37 +86,46 @@ const REFLECTIONS: Reflection[] = [
     date: '2023 – Present',
     sections: [
       {
-        question: 'What motivated you to pursue Data Engineering?',
+        question: 'Why Data Engineering?',
         answer:
-          'My motivation for studying Data Engineering at UTS stems from a deep curiosity about how structured ' +
-          'thinking and technology can solve real-world problems at scale. I am particularly drawn to the ' +
-          'intersection of data systems, cloud infrastructure, and machine learning — areas where technical ' +
-          'decisions have direct, measurable business outcomes.\n\n' +
-          'I chose this degree because it offers both the rigour of engineering and the versatility of data ' +
-          'science, preparing me to contribute across industries and domains.',
+          'I\'d always been more interested in how systems work than memorising facts — I wanted to ' +
+          'build things. Data Engineering felt like the right fit because it sits at the intersection ' +
+          'of software, infrastructure, and analysis. It\'s not just coding for coding\'s sake; every ' +
+          'system you build is eventually in service of a decision or an outcome.\n\n' +
+          'I was also drawn to the breadth of it. The degree forced me to understand networking, ' +
+          'cloud infrastructure, machine learning, and software development — which is exactly the ' +
+          'kind of generalist-with-depth background I wanted going into the workforce.',
       },
       {
-        question: 'What has been the most significant learning experience during your studies?',
+        question: 'What\'s been the most significant learning experience?',
         answer:
-          'The most significant learning experience was developing my machine learning model for breast cancer ' +
-          'tumour recognition. This project required me to independently research, design, and implement a ' +
-          'TensorFlow-based pipeline achieving 98% detection accuracy. The process taught me disciplined ' +
-          'problem-solving, iterative model evaluation, and the ethical weight of building systems that ' +
-          'affect human lives.\n\n' +
-          'Equally impactful was my home server project, where I applied classroom knowledge about networking ' +
-          'and virtualisation to a live, production-like environment — reinforcing that theory and practice ' +
-          'must always be connected.',
+          'Honestly, running my own home server has probably taught me more than most of my coursework — ' +
+          'not because the coursework wasn\'t good, but because when something breaks in production and ' +
+          'it\'s your own system, you have to actually fix it. I\'ve set up TrueNAS, Pi-hole, Docker ' +
+          'stacks, DNS routing, and self-hosted web apps. When something goes down, you debug it properly.\n\n' +
+          'On the academic side, the cancer tumour detection project was a turning point. Getting to ' +
+          '98% accuracy sounds impressive on a slide, but the process — iterating on the architecture, ' +
+          'tuning augmentation pipelines, evaluating false negative rates in a medical context — taught ' +
+          'me that building ML models is mostly careful engineering, not magic.\n\n' +
+          'My Honours project on NLP-based document extraction is shaping up to be the most challenging ' +
+          'thing I\'ve taken on. Working with real-world OCR text is genuinely messy, and the gap between ' +
+          '"LLMs can do this" and "LLMs reliably do this under real conditions" is where the interesting ' +
+          'research lives.',
       },
       {
         question: 'How have you grown as an engineering professional?',
         answer:
-          'I have grown from a technically curious student into a professional who understands that engineering ' +
-          'is fundamentally about people — the teams you work within, the clients you serve, and the communities ' +
-          'your systems affect.\n\n' +
-          'My leadership roles as Treasurer and Sponsorship Director across UTS clubs, combined with my KPMG ' +
-          'internship, have developed my capacity to manage competing priorities, negotiate outcomes, and ' +
-          'communicate complex information clearly. I approach every challenge with a growth mindset and a ' +
-          'commitment to producing high-quality, reliable work.',
+          'I\'ve got a lot more comfortable with uncertainty. Early on I wanted clear requirements and ' +
+          'a defined path before starting anything. Now I\'m better at scoping a problem, making a ' +
+          'reasonable decision with incomplete information, and iterating from there.\n\n' +
+          'Managing the UTS Taekwondo Society finances for two years — 50+ members, competition travel, ' +
+          'membership payments — gave me a real sense of what it means to be accountable to a group of ' +
+          'people who are counting on you to have things sorted. That kind of low-drama reliability is ' +
+          'something I\'ve tried to carry into technical work too.\n\n' +
+          'The photography side has also shaped how I think about delivery. When you\'re the only ' +
+          'photographer at a 15,000-person convention coordinating a team of OTD photographers, ' +
+          'managing the archive, and making sure communication doesn\'t fall apart — you learn to stay ' +
+          'calm, triage fast, and keep moving.',
       },
     ],
   },
@@ -221,7 +231,7 @@ export default function Reflections() {
           color: 'var(--text-secondary)',
           fontStyle: 'italic',
         }}>
-          * Due to client confidentiality and professional obligations, no workplace photos are included in the KPMG reflection.
+          * Due to client confidentiality obligations, no workplace materials are included in the KPMG reflection.
         </p>
       </div>
     </section>

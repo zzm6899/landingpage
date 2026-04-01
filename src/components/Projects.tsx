@@ -62,14 +62,14 @@ const PROJECTS: Project[] = [
     icon: '💻',
   },
   {
-    name: 'Google Cloud Certification',
+    name: 'Honours Research — NLP Document Extraction',
     description:
-      'Actively preparing for the Google Cloud Associate Cloud Engineer certification. ' +
-      'Hands-on labs covering GCP virtual machines, Kubernetes Engine, Cloud Storage, ' +
-      'IAM policies, VPC networking, and cloud-native monitoring concepts.',
-    tech: ['GCP', 'Kubernetes', 'Cloud IAM', 'Compute Engine', 'Cloud Storage'],
-    highlight: 'In Progress',
-    icon: '☁️',
+      'Investigating NLP and LLM techniques for structured information extraction from OCR-generated text. ' +
+      'The pipeline processes real-world documents (receipts, invoices, forms) to extract key entities ' +
+      'such as dates, merchants, and totals — comparing multiple NLP approaches for accuracy and robustness.',
+    tech: ['Python', 'NLP', 'LLMs', 'OCR', 'HuggingFace', 'Data Engineering'],
+    highlight: 'Pending',
+    icon: '🔬',
   },
 ]
 

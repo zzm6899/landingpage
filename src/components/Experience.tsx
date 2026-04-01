@@ -21,15 +21,15 @@ const EXPERIENCE: Job[] = [
     ],
   },
   {
-    title: 'Event / Personal Photographer',
+    title: 'Event & Personal Photographer',
     company: 'Zac Morgan Photography',
     period: 'Apr 2024 – Present',
     type: 'Freelance',
     points: [
-      'Captured large-scale conventions and entertainment events including SMASH! (15,000+ attendees) and the FLOW! Japanese band tour.',
-      'Photographed 30+ weddings and private events, performing high-quality, natural imagery aligned with client expectations.',
-      'Negotiated multi-event contracts with Asahi Beverages and Navarra Venues, driving client acquisition and long-term partnerships.',
-      'Planned and executed event photography projects end-to-end, achieving 100% on-time delivery and high client satisfaction.',
+      'Core team photographer for Oceania-wide sports events including Hyrox, marathons, and Ironman competitions held across Australia.',
+      'Official photographer for SMASH! Convention (15,000+ attendees) — overseeing OTD Photographers, managing the photo archive, and coordinating team communications across multi-day events.',
+      'Photographed 30+ weddings and private events, delivering natural, high-quality imagery aligned with client expectations and on-time every engagement.',
+      'Negotiated multi-event contracts with Asahi Beverages and Navarra Venues, driving sustained client partnerships and repeat bookings.',
     ],
   },
   {
@@ -47,16 +47,22 @@ const EXPERIENCE: Job[] = [
 
 const VOLUNTEERING = [
   {
-    title: 'Rapid Response Team Member',
+    title: 'OTD Photographer Lead & Rapid Response',
     org: 'SMASH! Convention',
     period: 'Dec 2024 – Present',
-    desc: 'Coordinate event logistics and crowd management for conventions with 15,000+ attendees. Administer first aid and manage emergency incidents.',
+    desc: 'Oversee the Outfit of the Day (OTD) photography team at conventions with 15,000+ attendees. Manage photo archive logistics, coordinate team communications, and administer first aid and emergency crowd management as part of the Rapid Response team.',
   },
   {
-    title: 'Treasurer & Sponsorship Director',
+    title: 'Treasurer',
+    org: 'UTS Taekwondo Society',
+    period: 'Oct 2023 – Present',
+    desc: 'Managed club finances for 2+ years across a 50+ member society. Oversee membership payment processing, budgeting for club competitions, interstate travel logistics, and general organisational operations — keeping the club solvent and growing year on year.',
+  },
+  {
+    title: 'Sponsorship Director',
     org: 'UTS Clubs (Multiple)',
     period: 'Oct 2023 – Present',
-    desc: 'Oversee club budgets and sponsorship agreements with brands including TimeZone, HobbyCo, CrunchyRoll, Hoyts, and Kinokuniya.',
+    desc: 'Negotiate and manage multi-event sponsorship agreements with brands including TimeZone, HobbyCo, CrunchyRoll, Hoyts, and Kinokuniya to fund club operations and events for hundreds of UTS students.',
   },
   {
     title: 'Member',
@@ -137,7 +143,7 @@ export default function Experience() {
           gap: '20px',
         }}>
           {VOLUNTEERING.map((vol) => (
-            <div key={vol.org} className="card">
+            <div key={`${vol.org}-${vol.title}`} className="card">
               <div style={{ fontWeight: 600, marginBottom: '4px' }}>{vol.title}</div>
               <div style={{ color: 'var(--accent)', fontSize: '14px', marginBottom: '4px' }}>
                 {vol.org}
