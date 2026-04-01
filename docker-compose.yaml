@@ -1,0 +1,27 @@
+# ─── TrueNAS / Local Deployment ─────────────────────────────────────────────
+# Pull the pre-built image from GitHub Container Registry.
+# To build locally instead, comment out `image:` and uncomment `build:`.
+#
+# Usage:
+#   docker compose up -d
+#   docker compose pull && docker compose up -d   # pull latest then start
+# ─────────────────────────────────────────────────────────────────────────────
+
+services:
+  landingpage:
+    image: ghcr.io/zzm6899/landingpage:latest
+    # build:                    # Uncomment to build from source instead
+    #   context: .
+    #   dockerfile: Dockerfile
+    container_name: zac-portfolio
+    ports:
+      - '3000:80'
+    restart: unless-stopped
+    healthcheck:
+      test: ["CMD", "wget", "-qO-", "http://localhost/health"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+      start_period: 10s
+    labels:
+      - "com.centurylinklabs.watchtower.enable=true"   # optional: auto-update with Watchtower
