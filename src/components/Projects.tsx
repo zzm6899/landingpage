@@ -93,13 +93,19 @@ export default function Projects() {
               display: 'flex',
               flexDirection: 'column',
               gap: '14px',
-              transition: 'transform 0.2s ease, box-shadow 0.2s ease',
+              transition: 'transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease',
             }}
               onMouseEnter={e => {
-                (e.currentTarget as HTMLDivElement).style.transform = 'translateY(-3px)'
+                const el = e.currentTarget as HTMLDivElement
+                el.style.transform = 'translateY(-4px)'
+                el.style.boxShadow = 'var(--shadow-glow)'
+                el.style.borderColor = 'var(--border-accent)'
               }}
               onMouseLeave={e => {
-                (e.currentTarget as HTMLDivElement).style.transform = 'translateY(0)'
+                const el = e.currentTarget as HTMLDivElement
+                el.style.transform = 'translateY(0)'
+                el.style.boxShadow = ''
+                el.style.borderColor = ''
               }}
             >
               {/* Header row */}

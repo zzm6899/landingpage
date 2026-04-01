@@ -12,6 +12,7 @@
   --border:        #30363d;
   --border-accent: #388bfd40;
   --shadow:        0 8px 32px rgba(0, 0, 0, 0.4);
+  --shadow-glow:   0 0 24px rgba(88, 166, 255, 0.18);
   --radius:        8px;
   --radius-lg:     12px;
   --transition:    0.2s ease;
@@ -69,6 +70,7 @@ a:hover { color: #79c0ff; }
   height: 1px;
   background: var(--border);
   max-width: 260px;
+  animation: lineGrow 0.8s cubic-bezier(0.22, 1, 0.36, 1) both;
 }
 
 .section-title {
@@ -83,17 +85,19 @@ a:hover { color: #79c0ff; }
   border: 1px solid var(--border);
   border-radius: var(--radius-lg);
   padding: 28px;
-  transition: border-color var(--transition), background var(--transition), transform var(--transition);
+  transition: border-color var(--transition), background var(--transition), transform var(--transition), box-shadow var(--transition);
 }
 
 .card:hover {
   border-color: var(--border-accent);
   background: var(--bg-card-hover);
+  box-shadow: var(--shadow-glow);
 }
 
-/* Projects section overrides inline hover */
+/* Projects section: hover handled via inline JS */
 #projects .card:hover {
   transform: none;
+  box-shadow: none;
 }
 
 .tag {
@@ -105,6 +109,13 @@ a:hover { color: #79c0ff; }
   background: var(--accent-glow);
   color: var(--accent);
   border: 1px solid var(--border-accent);
+  transition: transform 0.15s ease, box-shadow 0.15s ease, background 0.15s ease;
+}
+
+.tag:hover {
+  transform: scale(1.08);
+  box-shadow: 0 0 10px rgba(88, 166, 255, 0.25);
+  background: rgba(88, 166, 255, 0.22);
 }
 
 .btn {
@@ -128,8 +139,8 @@ a:hover { color: #79c0ff; }
 .btn-primary:hover {
   background: #79c0ff;
   color: #0d1117;
-  transform: translateY(-1px);
-  box-shadow: 0 4px 16px rgba(88, 166, 255, 0.3);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(88, 166, 255, 0.35);
 }
 
 .btn-outline {
@@ -140,7 +151,8 @@ a:hover { color: #79c0ff; }
 
 .btn-outline:hover {
   background: var(--accent-glow);
-  transform: translateY(-1px);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 14px rgba(88, 166, 255, 0.2);
 }
 
 /* ─── Scrollbar ──────────────────────────────────────────────────────── */
@@ -163,17 +175,96 @@ a:hover { color: #79c0ff; }
 
 /* ─── Scroll reveal ──────────────────────────────────────────────────── */
 @keyframes cardReveal {
-  from { opacity: 0; transform: translateY(20px); }
+  from { opacity: 0; transform: translateY(28px); }
   to   { opacity: 1; transform: translateY(0); }
 }
 
 .card.reveal {
   opacity: 0;
-  animation: cardReveal 0.55s ease forwards paused;
+  animation: cardReveal 0.55s cubic-bezier(0.22, 1, 0.36, 1) forwards paused;
+  animation-delay: calc(var(--stagger, 0) * 0.09s);
 }
 
 .card.reveal.is-visible {
   animation-play-state: running;
+}
+
+/* ─── Hero entrance animations ───────────────────────────────────────── */
+@keyframes fadeInUp {
+  from { opacity: 0; transform: translateY(32px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+.hero-intro {
+  animation: fadeInUp 0.7s cubic-bezier(0.22, 1, 0.36, 1) both;
+  animation-delay: 0.1s;
+}
+
+.hero-name {
+  animation: fadeInUp 0.7s cubic-bezier(0.22, 1, 0.36, 1) both;
+  animation-delay: 0.22s;
+}
+
+.hero-role {
+  animation: fadeInUp 0.7s cubic-bezier(0.22, 1, 0.36, 1) both;
+  animation-delay: 0.34s;
+}
+
+.hero-desc {
+  animation: fadeInUp 0.7s cubic-bezier(0.22, 1, 0.36, 1) both;
+  animation-delay: 0.46s;
+}
+
+.hero-cta {
+  animation: fadeInUp 0.7s cubic-bezier(0.22, 1, 0.36, 1) both;
+  animation-delay: 0.58s;
+}
+
+.hero-stats {
+  animation: fadeInUp 0.7s cubic-bezier(0.22, 1, 0.36, 1) both;
+  animation-delay: 0.82s;
+}
+
+/* ─── Floating blob ──────────────────────────────────────────────────── */
+@keyframes float {
+  0%, 100% { transform: translateY(0px) scale(1); }
+  50%       { transform: translateY(-20px) scale(1.04); }
+}
+
+@keyframes floatSlow {
+  0%, 100% { transform: translateY(0px) rotate(0deg); }
+  33%       { transform: translateY(-14px) rotate(3deg); }
+  66%       { transform: translateY(8px) rotate(-2deg); }
+}
+
+.hero-blob {
+  animation: float 7s ease-in-out infinite;
+}
+
+.hero-blob-2 {
+  animation: floatSlow 11s ease-in-out infinite;
+}
+
+/* ─── Section label line reveal ──────────────────────────────────────── */
+@keyframes lineGrow {
+  from { max-width: 0; }
+  to   { max-width: 260px; }
+}
+
+/* ─── Mobile menu slide-down ─────────────────────────────────────────── */
+@keyframes slideDown {
+  from { opacity: 0; transform: translateY(-12px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+.nav-mobile-menu {
+  animation: slideDown 0.22s cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+/* ─── Pulse-glow for accent items ────────────────────────────────────── */
+@keyframes pulseGlow {
+  0%, 100% { box-shadow: 0 0 0 0 rgba(88, 166, 255, 0); }
+  50%       { box-shadow: 0 0 14px 3px rgba(88, 166, 255, 0.2); }
 }
 
 /* ─── Back to top ────────────────────────────────────────────────────── */
@@ -197,18 +288,21 @@ a:hover { color: #79c0ff; }
   opacity: 0;
   transform: translateY(12px);
   pointer-events: none;
-  transition: opacity 0.25s ease, transform 0.25s ease, border-color 0.2s, background 0.2s;
+  transition: opacity 0.25s ease, transform 0.25s ease, border-color 0.2s, background 0.2s, box-shadow 0.2s;
 }
 
 .back-to-top.visible {
   opacity: 1;
   transform: translateY(0);
   pointer-events: auto;
+  animation: pulseGlow 3s ease-in-out infinite;
 }
 
 .back-to-top:hover {
   background: var(--bg-card-hover);
-  border-color: var(--border-accent);
+  border-color: var(--accent);
+  box-shadow: var(--shadow-glow);
+  transform: translateY(-3px);
 }
 
 /* ─── Typewriter cursor ──────────────────────────────────────────────── */

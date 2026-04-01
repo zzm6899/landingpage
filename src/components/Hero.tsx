@@ -64,8 +64,8 @@ export default function Hero() {
         pointerEvents: 'none',
       }} />
 
-      {/* Gradient blob */}
-      <div style={{
+      {/* Gradient blob 1 */}
+      <div className="hero-blob" style={{
         position: 'absolute',
         top: '20%',
         right: '-10%',
@@ -75,9 +75,20 @@ export default function Hero() {
         pointerEvents: 'none',
       }} />
 
+      {/* Gradient blob 2 */}
+      <div className="hero-blob-2" style={{
+        position: 'absolute',
+        bottom: '10%',
+        left: '-8%',
+        width: '380px',
+        height: '380px',
+        background: 'radial-gradient(circle, rgba(63,185,80,0.05) 0%, transparent 70%)',
+        pointerEvents: 'none',
+      }} />
+
       <div className="container">
         <div style={{ maxWidth: '720px' }}>
-          <p style={{
+          <p className="hero-intro" style={{
             fontFamily: 'var(--font-mono)',
             fontSize: '14px',
             color: 'var(--accent)',
@@ -87,7 +98,7 @@ export default function Hero() {
             Hi, my name is
           </p>
 
-          <h1 style={{
+          <h1 className="hero-name" style={{
             fontSize: 'clamp(42px, 7vw, 72px)',
             fontWeight: 800,
             lineHeight: 1.1,
@@ -98,7 +109,7 @@ export default function Hero() {
             Zac Morgan.
           </h1>
 
-          <h2 style={{
+          <h2 className="hero-role" style={{
             fontSize: 'clamp(28px, 4.5vw, 52px)',
             fontWeight: 700,
             lineHeight: 1.2,
@@ -110,7 +121,7 @@ export default function Hero() {
             {displayed}<span className="typewriter-cursor" />
           </h2>
 
-          <p style={{
+          <p className="hero-desc" style={{
             fontSize: '17px',
             color: 'var(--text-secondary)',
             lineHeight: 1.85,
@@ -124,7 +135,7 @@ export default function Hero() {
             both on the convention floor and in the boardroom.
           </p>
 
-          <div style={{ display: 'flex', gap: '16px', flexWrap: 'wrap' }}>
+          <div className="hero-cta" style={{ display: 'flex', gap: '16px', flexWrap: 'wrap' }}>
             <a href="#experience" className="btn btn-primary">
               View My Work →
             </a>
@@ -134,7 +145,7 @@ export default function Hero() {
           </div>
 
           {/* Stats row */}
-          <div style={{
+          <div className="hero-stats" style={{
             display: 'flex',
             gap: '40px',
             marginTop: '64px',
