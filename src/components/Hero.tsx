@@ -32,7 +32,7 @@ export default function Hero() {
       }} />
 
       <div className="container">
-        <div style={{ maxWidth: '700px' }}>
+        <div style={{ maxWidth: '720px' }}>
           <p style={{
             fontFamily: 'var(--font-mono)',
             fontSize: '14px',
@@ -55,35 +55,36 @@ export default function Hero() {
           </h1>
 
           <h2 style={{
-            fontSize: 'clamp(32px, 5vw, 56px)',
+            fontSize: 'clamp(28px, 4.5vw, 52px)',
             fontWeight: 700,
             lineHeight: 1.2,
             letterSpacing: '-0.02em',
             color: 'var(--text-secondary)',
             marginBottom: '28px',
           }}>
-            I build data-driven systems.
+            Data engineer. Builder. Problem solver.
           </h2>
 
           <p style={{
-            fontSize: '18px',
+            fontSize: '17px',
             color: 'var(--text-secondary)',
-            lineHeight: 1.8,
-            maxWidth: '560px',
+            lineHeight: 1.85,
+            maxWidth: '600px',
             marginBottom: '44px',
           }}>
-            Data Engineering student at <span style={{ color: 'var(--text-primary)' }}>UTS</span> with
-            hands-on experience at <span style={{ color: 'var(--text-primary)' }}>KPMG</span>.
-            I build ML models, cloud infrastructure, and analytics pipelines that translate
-            complex data into real-world business value.
+            Final-year <span style={{ color: 'var(--text-primary)' }}>Data Engineering (Honours)</span> student
+            at UTS with industry experience at{' '}
+            <span style={{ color: 'var(--text-primary)' }}>KPMG Australia</span>.
+            I build ML models, data pipelines, and self-hosted infrastructure — and lead teams
+            both on the convention floor and in the boardroom.
           </p>
 
           <div style={{ display: 'flex', gap: '16px', flexWrap: 'wrap' }}>
             <a href="#experience" className="btn btn-primary">
               View My Work →
             </a>
-            <a href="#contact" className="btn btn-outline">
-              Get In Touch
+            <a href="#cover-letter" className="btn btn-outline">
+              Cover Letter
             </a>
           </div>
 
@@ -99,7 +100,7 @@ export default function Hero() {
             {[
               { value: '6.38', label: 'GPA at UTS' },
               { value: '98%', label: 'ML Model Accuracy' },
-              { value: '3+', label: 'Years Experience' },
+              { value: '15k+', label: 'Event Attendees Led' },
               { value: 'KPMG', label: 'Industry Experience' },
             ].map(stat => (
               <div key={stat.label}>

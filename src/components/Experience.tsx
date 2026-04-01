@@ -27,7 +27,7 @@ const EXPERIENCE: Job[] = [
     type: 'Freelance',
     points: [
       'Core team photographer for Oceania-wide sports events including Hyrox, marathons, and Ironman competitions held across Australia.',
-      'Official photographer for SMASH! Convention (15,000+ attendees) — overseeing OTD Photographers, managing the photo archive, and coordinating team communications across multi-day events.',
+      'Official On the Day (OTD) photographer for SMASH! Convention (15,000+ attendees) — overseeing the photography team, managing the photo archive, and coordinating team communications across multi-day events.',
       'Photographed 30+ weddings and private events, delivering natural, high-quality imagery aligned with client expectations and on-time every engagement.',
       'Negotiated multi-event contracts with Asahi Beverages and Navarra Venues, driving sustained client partnerships and repeat bookings.',
     ],
@@ -47,10 +47,10 @@ const EXPERIENCE: Job[] = [
 
 const VOLUNTEERING = [
   {
-    title: 'OTD Photographer Lead & Rapid Response',
+    title: 'On the Day (OTD) Photographer Lead & Rapid Response',
     org: 'SMASH! Convention',
     period: 'Dec 2024 – Present',
-    desc: 'Oversee the Outfit of the Day (OTD) photography team at conventions with 15,000+ attendees. Manage photo archive logistics, coordinate team communications, and administer first aid and emergency crowd management as part of the Rapid Response team.',
+    desc: 'Oversee the On the Day (OTD) photography team at conventions with 15,000+ attendees. Manage photo archive logistics, coordinate team communications, and administer first aid and emergency crowd management as part of the Rapid Response team.',
   },
   {
     title: 'Treasurer',

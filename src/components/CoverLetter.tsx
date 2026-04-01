@@ -3,50 +3,56 @@ export default function CoverLetter() {
     {
       number: '3.1',
       criterion: 'Commitment to Ethical Conduct & Professional Accountability',
-      s: 'During my internship at KPMG Australia, I worked on a Long Service Leave remediation engagement where accurate, compliant reporting was critical to protecting employee entitlements.',
-      t: 'I was required to handle sensitive payroll data responsibly and ensure all analytical outputs met strict audit and compliance standards.',
-      a: 'I followed KPMG\'s professional standards throughout — maintaining data confidentiality, documenting every transformation step for auditability, and escalating discrepancies to senior managers rather than resolving them in ways that could obscure issues.',
-      r: 'My outputs passed internal review without amendment and were used directly in client-facing deliverables, demonstrating a consistent commitment to accuracy, transparency, and ethical practice in a compliance-driven environment.',
+      body: [
+        'During my internship at KPMG Australia, I was assigned to a Long Service Leave (LSL) remediation engagement in which accurate, compliant reporting was essential to protecting employee entitlements across a client organisation. The sensitivity of this work — involving historical payroll data belonging to real employees — required that every analytical output be handled with the highest degree of professional care.',
+        'In practice, this meant adhering strictly to KPMG\'s data governance standards: maintaining confidentiality throughout, documenting every data transformation step for audit traceability, and escalating identified discrepancies to senior engagement managers through the appropriate channels rather than resolving them unilaterally. I was acutely aware that the decisions I made in how I treated that data had downstream consequences for people whose entitlements depended on the accuracy of the analysis.',
+        'The outcomes of this approach were measurable. My outputs passed internal quality review without amendment and were incorporated directly into client-facing deliverables presented by senior managers. This experience gave me a grounded understanding of what professional accountability looks like in a compliance-driven environment — not as an abstract principle, but as a daily practice with real consequences.',
+      ],
     },
     {
       number: '3.2',
       criterion: 'Effective Communication with Engineers & Cross-Discipline Stakeholders',
-      s: 'As Treasurer and Sponsorship Director across multiple UTS clubs, I regularly communicated with corporate partners — including TimeZone, HobbyCo, CrunchyRoll, Hoyts, and Kinokuniya — who had no background in the student context I was operating within.',
-      t: 'My goal was to negotiate multi-event sponsorship agreements and maintain ongoing relationships to secure sustained funding.',
-      a: 'I prepared tailored sponsorship proposals that translated our club\'s value proposition into business outcomes relevant to each brand. I also adapted my communication style when briefing club committees — presenting financial summaries in plain language and strategic terms rather than raw numbers.',
-      r: 'I successfully secured multi-event agreements with several major brands, funding high-quality events for hundreds of UTS students and building lasting partnerships that carried across consecutive academic years.',
+      body: [
+        'In my role as Treasurer and Sponsorship Director across multiple UTS clubs, I was regularly required to communicate across very different audiences — from student committee members with limited financial background to senior representatives of corporate brands including TimeZone, HobbyCo, CrunchyRoll, Hoyts, and Kinokuniya. The central challenge in each case was translating the same underlying information into a form that was meaningful and actionable for the specific audience.',
+        'For corporate partners, I prepared tailored sponsorship proposals that reframed our club\'s value proposition in terms of audience reach, brand visibility, and measurable event outcomes. For internal committees, I adapted financial reports into plain-language summaries that supported clear decision-making without requiring accounting expertise. In both contexts, effective communication required not just clarity of expression, but genuine attention to what the other party needed to know.',
+        'This approach produced tangible results. I successfully negotiated multi-event sponsorship agreements with several major brands, securing funding that enabled high-quality events for hundreds of UTS students and building partnerships that extended across consecutive academic years. These outcomes demonstrated that cross-disciplinary communication, when approached with intentionality, is itself a strategic capability.',
+      ],
     },
     {
       number: '3.3',
       criterion: 'Creative, Innovative & Proactive Engagement',
-      s: 'Outside of university and work, I identified a gap in available tooling for tracking arcade card balances across multiple Australian arcade chains (Koko Amusement and Timezone).',
-      t: 'I wanted to build a self-hosted solution that aggregated balance data, tracked spending patterns, and delivered insights through a web dashboard and Discord bot.',
-      a: 'I independently designed and built ArcadeTracker — a Python/Flask application with automated polling, web scraping, OAuth-based API integration, SQLite storage, and a Chart.js dashboard — packaging it in Docker for portability. I took the initiative from concept to deployment without any brief or external requirement.',
-      r: 'The project is now live on my home server, actively tracking multiple cards with 5-minute polling intervals, Discord slash commands, and leaderboard features. It demonstrates my ability to identify problems proactively and ship complete solutions independently.',
+      body: [
+        'My engagement with creative and innovative problem-solving is perhaps best illustrated through a project I initiated entirely independently. I identified a practical gap: there was no consolidated tool available for tracking card balances across multiple Australian arcade chains — specifically Koko Amusement and Timezone. Rather than accepting this as a limitation, I treated it as an engineering problem worth solving.',
+        'I designed and built ArcadeTracker from the ground up: a self-hosted Python/Flask application incorporating automated polling at five-minute intervals, web scraping for Koko cards, OAuth-based API integration for Timezone, SQLite storage for historical data, Chart.js visualisations for spending analytics, and a Discord bot with slash commands and leaderboard functionality. The entire system was containerised in Docker for portable deployment. No brief existed for this project; the decision to build it, define its scope, and see it through to production was entirely mine.',
+        'ArcadeTracker is now live on my home server and actively in use. The project demonstrates my capacity to identify a problem proactively, conceptualise an end-to-end solution, and deliver a working product without external direction — which I understand to be precisely the kind of initiative that distinguishes a strong graduate engineer in a consulting environment.',
+      ],
     },
     {
       number: '3.4',
       criterion: 'Ability to Use & Manage Information',
-      s: 'During my KPMG engagement, I was responsible for analysing large historical payroll datasets spanning multiple years to identify and resolve entitlement discrepancies.',
-      t: 'I needed to design reliable data pipelines that could extract, clean, and reconcile information across inconsistently structured source systems under tight delivery timelines.',
-      a: 'I developed optimised SQL stored procedures and Python scripts to automate the extraction and transformation process, implementing systematic cross-referencing to surface discrepancies and generate audit-ready reconciliation reports.',
-      r: 'My pipelines materially improved reporting speed and accuracy. The outputs I produced were incorporated directly into senior engagement manager deliverables — demonstrating that I can manage complex information flows at a professional standard.',
+      body: [
+        'During my KPMG engagement, I was responsible for analysing multi-year historical payroll datasets to identify and resolve Long Service Leave entitlement discrepancies. The challenge was not simply one of scale — it was one of complexity. Source systems were inconsistently structured, data definitions varied across time periods, and the reconciliation logic required careful cross-referencing of records that did not map cleanly to one another.',
+        'To address this, I designed and built a data pipeline using optimised SQL stored procedures and Python automation scripts that extracted, transformed, and reconciled the relevant information in a repeatable, auditable manner. I implemented systematic cross-referencing checks to surface discrepancies before they reached the reporting stage, and structured my outputs as audit-ready reconciliation reports that could be reviewed and trusted by senior managers without requiring them to interrogate the underlying logic themselves.',
+        'The pipeline I developed materially improved both the speed and accuracy of the engagement\'s reporting outputs. That those outputs were subsequently used directly in client-facing deliverables reflects the degree to which I was able to manage information at a professional standard — not merely processing data, but engineering a reliable system for transforming it into something decision-makers could act upon.',
+      ],
     },
     {
       number: '3.5',
       criterion: 'Managing Own Performance in a Professional Environment',
-      s: 'As a final-year Data Engineering student at UTS (GPA 6.38) while simultaneously working at KPMG, I had to balance significant academic and professional demands across concurrent deadlines.',
-      t: 'I needed to consistently meet both university deliverables and client-facing work obligations without allowing either to suffer.',
-      a: 'I developed structured personal workflows — prioritising tasks by urgency and impact, maintaining clear progress tracking, and proactively communicating blockers to both academic supervisors and KPMG managers before they became issues.',
-      r: 'I maintained academic performance above a credit-distinction average while delivering professional-standard outputs at KPMG on time. This balance reflects my ability to self-manage and perform reliably across multiple high-stakes obligations simultaneously.',
+      body: [
+        'During the final year of my Bachelor of Data Science Engineering (Honours) at UTS, I simultaneously undertook a full-time internship at KPMG Australia. This arrangement required managing significant and concurrent obligations: university assignments and Honours research on one side, and client-facing analytical work with professional deadlines on the other.',
+        'I approached this challenge by developing structured personal workflows. I maintained explicit task prioritisation systems, distinguished between urgent and high-impact work, tracked progress against both academic and professional milestones, and communicated proactively with both my academic supervisors and KPMG team leads when workload pressures emerged — rather than allowing them to accumulate silently.',
+        'The results were consistent performance across both environments. I maintained a GPA of 6.38 and a WAM of 85.14 while delivering professional-standard outputs at KPMG on time throughout the engagement. This experience has given me confidence that I can sustain performance under genuine pressure — not by eliminating that pressure, but by managing it with discipline and transparency.',
+      ],
     },
     {
       number: '3.6',
       criterion: 'Teamwork & Leadership',
-      s: 'Across two years serving on UTS club executive committees — including as Treasurer and Sponsorship Director — I worked within and led small cross-functional teams responsible for running large-scale events.',
-      t: 'My role required coordinating between logistics, marketing, and finance subgroups while maintaining accountability for the financial health of the club.',
-      a: 'I led sponsorship strategy, delegated financial reporting responsibilities, ran structured committee meetings, and mentored incoming executive members in financial management processes. When conflicts arose between subcommittees, I facilitated resolutions that kept the wider team aligned.',
-      r: 'The clubs I supported successfully ran multiple major events per semester. My leadership in the sponsorship and finance domain directly enabled growth in both event quality and membership numbers year-on-year.',
+      body: [
+        'My experience in team leadership spans both formal roles and operational environments. As Treasurer and Sponsorship Director for multiple UTS clubs over two years, I worked within and led cross-functional executive committees responsible for organising large-scale student events. My responsibilities extended across sponsorship strategy, financial oversight, committee coordination, and the mentoring of incoming executive members in financial management processes.',
+        'In practice, leadership in these settings required more than task delegation. It required building trust within a volunteer team, facilitating constructive resolution when subcommittees held competing priorities, and maintaining accountability for outcomes even when those outcomes depended on the efforts of others. I also led the On the Day (OTD) photography team at SMASH! Convention — coordinating a group of photographers across a 15,000-person event, managing archive logistics, and ensuring clear communications were maintained throughout.',
+        'The clubs I supported consistently delivered high-quality events across multiple semesters, with measurable growth in both attendance and membership. The OTD team I led produced a complete, well-organised photo archive under time pressure. These outcomes reflect not just my capacity to function as a team member, but my ability to set direction, sustain team cohesion, and be accountable for collective results.',
+      ],
     },
   ]
 
@@ -57,12 +63,20 @@ export default function CoverLetter() {
         <h2 className="section-title">Cover Letter</h2>
         <p style={{ color: 'var(--text-secondary)', fontSize: '15px', marginBottom: '40px', maxWidth: '680px' }}>
           Addressed to <strong style={{ color: 'var(--text-primary)' }}>Industrus Engineering</strong> — Graduate Engineer Program.
-          Written using the <strong style={{ color: 'var(--text-primary)' }}>STAR method</strong> to address all six selection criteria.
+          Written using the <strong style={{ color: 'var(--text-primary)' }}>STAR method</strong> to address all six selection criteria (3.1 – 3.6).
         </p>
 
         <div className="card" style={{ maxWidth: '820px', lineHeight: 1.9 }}>
           {/* Letter header */}
-          <div style={{ marginBottom: '32px', paddingBottom: '24px', borderBottom: '1px solid var(--border)', display: 'flex', justifyContent: 'space-between', flexWrap: 'wrap', gap: '12px' }}>
+          <div style={{
+            marginBottom: '32px',
+            paddingBottom: '24px',
+            borderBottom: '1px solid var(--border)',
+            display: 'flex',
+            justifyContent: 'space-between',
+            flexWrap: 'wrap',
+            gap: '12px',
+          }}>
             <div>
               <div style={{ fontWeight: 700, fontSize: '18px', marginBottom: '4px' }}>Zac Morgan</div>
               <div style={{ color: 'var(--text-secondary)', fontSize: '14px' }}>Sydney, NSW, Australia</div>
@@ -82,35 +96,39 @@ export default function CoverLetter() {
             </div>
           </div>
 
+          {/* Salutation */}
           <p style={{ marginBottom: '20px', color: 'var(--text-secondary)' }}>
             Dear Hiring Manager,
           </p>
 
-          <p style={{ marginBottom: '28px', color: 'var(--text-secondary)' }}>
-            I am writing to apply for the{' '}
-            <strong style={{ color: 'var(--text-primary)' }}>Graduate Engineer</strong> role at{' '}
-            <strong style={{ color: 'var(--text-primary)' }}>Industrus Engineering</strong>. As a
-            final-year Bachelor of Data Science Engineering (Honours) student at the University of Technology
-            Sydney — maintaining a GPA of 6.38 — with hands-on industry experience at KPMG Australia and a
-            track record of delivering independent technical projects, I am confident I can contribute
-            meaningfully to Industrus's innovative engineering consulting work from day one.
+          {/* Opening paragraph */}
+          <p style={{ marginBottom: '28px', color: 'var(--text-secondary)', fontSize: '15px', lineHeight: 1.85 }}>
+            I am writing to express my strong interest in the{' '}
+            <strong style={{ color: 'var(--text-primary)' }}>Graduate Engineer</strong> position at{' '}
+            <strong style={{ color: 'var(--text-primary)' }}>Industrus Engineering</strong>. As a final-year
+            Bachelor of Data Science Engineering (Honours) student at the University of Technology Sydney,
+            maintaining a GPA of 6.38, I bring a combination of academic rigour, hands-on industry experience
+            at KPMG Australia, and a demonstrated capacity to deliver independently in complex, multi-stakeholder
+            environments. I am confident in my ability to contribute meaningfully to Industrus's work from the
+            outset of the program. The following addresses each of the advertised selection criteria in turn.
           </p>
 
-          {/* Selection criteria */}
+          {/* Selection criteria — paragraph-based STAR */}
           <div style={{ marginBottom: '28px' }}>
             {criteria.map((block, i) => (
               <div key={i} style={{
-                marginBottom: '20px',
-                padding: '22px',
+                marginBottom: '24px',
+                padding: '24px',
                 background: 'var(--bg-secondary)',
                 borderRadius: 'var(--radius)',
                 borderLeft: '3px solid var(--accent)',
               }}>
-                <div style={{ display: 'flex', alignItems: 'center', gap: '10px', marginBottom: '14px', flexWrap: 'wrap' }}>
+                {/* Criterion header */}
+                <div style={{ display: 'flex', alignItems: 'center', gap: '10px', marginBottom: '16px', flexWrap: 'wrap' }}>
                   <span style={{
                     fontFamily: 'var(--font-mono)',
                     fontSize: '11px',
-                    padding: '2px 8px',
+                    padding: '2px 9px',
                     borderRadius: '20px',
                     background: 'rgba(88,166,255,0.12)',
                     color: 'var(--accent)',
@@ -123,27 +141,39 @@ export default function CoverLetter() {
                     {block.criterion}
                   </h4>
                 </div>
-                {(['Situation', 'Task', 'Action', 'Result'] as const).map((label, j) => (
-                  <p key={label} style={{ color: 'var(--text-secondary)', marginBottom: j < 3 ? '10px' : '0', fontSize: '14px', lineHeight: 1.75 }}>
-                    <strong style={{ color: 'var(--text-primary)', fontFamily: 'var(--font-mono)', fontSize: '12px' }}>{label}: </strong>
-                    {[block.s, block.t, block.a, block.r][j]}
+                {/* Paragraph-based body */}
+                {block.body.map((para, j) => (
+                  <p key={j} style={{
+                    color: 'var(--text-secondary)',
+                    fontSize: '14px',
+                    lineHeight: 1.85,
+                    marginBottom: j < block.body.length - 1 ? '14px' : '0',
+                  }}>
+                    {para}
                   </p>
                 ))}
               </div>
             ))}
           </div>
 
-          <p style={{ marginBottom: '20px', color: 'var(--text-secondary)' }}>
-            I am genuinely excited by Industrus's breadth of work — from renewable energy infrastructure
-            to disaster recovery technology to sustainable construction. The Graduate Program's rotational
-            structure aligns perfectly with my goal of building deep, cross-domain engineering experience
-            early in my career. I am available at your earliest convenience and can be reached at{' '}
-            <a href="mailto:zacmorgan101@gmail.com">zacmorgan101@gmail.com</a> or +61 490 163 783.
+          {/* Closing paragraph */}
+          <p style={{ marginBottom: '20px', color: 'var(--text-secondary)', fontSize: '15px', lineHeight: 1.85 }}>
+            I am genuinely excited by the scope and social value of Industrus Engineering's project work —
+            from advising on Australia's largest renewable energy infrastructure to applying digital technology
+            in disaster recovery and designing landmark sustainable buildings. The Graduate Program's structured
+            rotation across project roles and divisions aligns precisely with my goal of developing broad,
+            cross-domain engineering expertise early in my career. I would welcome the opportunity to discuss
+            my application further and am available at your earliest convenience.
           </p>
 
-          <p style={{ color: 'var(--text-secondary)', marginBottom: '8px' }}>Yours sincerely,</p>
-          <p style={{ fontWeight: 700, fontSize: '16px' }}>Zac Morgan</p>
+          {/* Sign-off */}
+          <p style={{ color: 'var(--text-secondary)', marginBottom: '4px' }}>Yours sincerely,</p>
+          <p style={{ fontWeight: 700, fontSize: '16px', marginBottom: '4px' }}>Zac Morgan</p>
+          <p style={{ color: 'var(--text-secondary)', fontSize: '14px' }}>
+            <a href="mailto:zacmorgan101@gmail.com">zacmorgan101@gmail.com</a> · +61 490 163 783
+          </p>
 
+          {/* Footer note */}
           <div style={{
             marginTop: '32px',
             paddingTop: '20px',
@@ -156,7 +186,7 @@ export default function CoverLetter() {
             gap: '8px',
           }}>
             <span style={{ color: 'var(--accent)' }}>ℹ</span>
-            STAR method applied to all 6 Industrus Engineering selection criteria (3.1 – 3.6)
+            STAR method applied to all 6 Industrus Engineering selection criteria (3.1 – 3.6). Client details from KPMG are not disclosed in accordance with professional confidentiality obligations.
           </div>
         </div>
       </div>

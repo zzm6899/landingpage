@@ -6,127 +6,93 @@ interface Reflection {
   subtitle: string
   date: string
   sections: { question: string; answer: string }[]
+  references?: string[]
 }
 
 const REFLECTIONS: Reflection[] = [
   {
     id: 'kpmg',
-    title: 'Internship Reflection',
+    title: 'Workplace Reflection',
     subtitle: 'KPMG Australia — Data Analyst Internship',
     date: 'Nov 2025 – Feb 2026',
     sections: [
       {
         question: 'What were your expectations before joining?',
         answer:
-          'Honestly, I expected it to be quite structured and corporate — lots of spreadsheets, ' +
-          'supporting senior staff, and fairly observational work. I figured as an intern I\'d be ' +
-          'doing the grunt work while the real decisions happened above me. I also assumed the ' +
-          'technical side would be fairly straightforward — maybe some Excel cleaning and report templates.',
+          'Before commencing my internship at KPMG Australia, I held a relatively narrow view of what professional services work would entail. I anticipated a highly structured environment centred on spreadsheet maintenance, documentation reviews, and administrative support for senior staff. I expected the work to be largely procedural, with well-defined instructions and limited scope for independent decision-making. More broadly, I assumed that as an intern my contributions would remain observational — useful to the team, but not consequential to the outcome of any real engagement.\n\n' +
+          'I also carried assumptions about the pace of professional settings. Having only experienced university group projects, where timelines are relatively forgiving and expectations are clearly scaffolded, I presumed corporate work would follow a similar structure. These expectations, I would soon discover, were significantly misaligned with reality.',
       },
       {
-        question: 'What was the reality? How did it differ?',
+        question: 'What was the reality? How did it differ from your expectations?',
         answer:
-          'Way more dynamic than I expected. I was thrown into a live client engagement almost ' +
-          'immediately — a Long Service Leave remediation project — and was actually responsible for ' +
-          'outputs that fed directly into what the senior managers were presenting to clients. That was ' +
-          'a bit of a shock at first.\n\n' +
-          'The work was also a lot more technically involved than I\'d anticipated. I was writing SQL ' +
-          'stored procedures, building Python automation scripts, and working with messy historical ' +
-          'payroll data that needed careful reconciliation. Nobody handed me a clean dataset — you had ' +
-          'to figure out what was wrong and fix it yourself.\n\n' +
-          'The other thing I didn\'t expect was how much communication mattered. Not just email or ' +
-          'status updates — but really being clear when something didn\'t add up, proactively flagging ' +
-          'issues before they became problems, and knowing when to escalate versus when to work through ' +
-          'something independently.',
+          'The reality of working at KPMG was far more demanding — and ultimately far more rewarding — than I had anticipated. Within my first week, I was integrated into a live client engagement: a Long Service Leave (LSL) remediation project requiring complex analysis of multi-year payroll datasets to identify and resolve entitlement discrepancies affecting real employees.\n\n' +
+          'The work demanded independent technical judgement. I was not handed clean, structured data with a clear methodology to follow. Instead, I was expected to diagnose inconsistencies in source systems, design SQL schemas and stored procedures to handle that complexity, and write Python automation scripts that could be relied upon by senior managers in their own client-facing deliverables. The accountability this carried was something I had not fully anticipated, and I felt the weight of that responsibility acutely during the early weeks of the engagement.\n\n' +
+          'I was also surprised by how central communication was to performing well. In a compliance-driven professional services context, an issue that is identified but not clearly escalated is, in practice, an issue that does not exist. Learning to communicate proactively — to articulate findings, flag ambiguities, and raise potential risks before they became problems — required a conscious shift in how I operated.',
       },
       {
-        question: 'What were the most important lessons?',
+        question: 'What lessons were the most important? Why?',
         answer:
-          'Three things stood out.\n\n' +
-          'First — accountability in a compliance environment is real. In audit and advisory work, a ' +
-          'small error in a dataset can cascade into a wrong client deliverable. I got much more ' +
-          'disciplined about reviewing my own work before passing it on.\n\n' +
-          'Second — asking the right question early saves everyone time. I\'d sometimes spend hours ' +
-          'going down a path only to realise I\'d misunderstood the requirement. Learning to clarify ' +
-          'upfront without it feeling like I didn\'t know what I was doing was a real skill to develop.\n\n' +
-          'Third — the technical skills I\'d built at uni were actually useful in the real world, which ' +
-          'was genuinely reassuring. But applying them in a professional context — with real deadlines, ' +
-          'real clients, and real consequences — is a different kind of pressure than a uni assignment.',
+          'Three lessons emerged as central to my development during this experience.\n\n' +
+          'The first was the importance of professional accountability. Gibbs (1988) notes that reflective practice requires honest engagement with what did and did not go well. Early in the engagement, I made an error in a reconciliation query that produced incorrect figures before review. Though the error was caught and corrected, the experience reinforced that in a compliance-driven environment, the downstream consequences of inaccurate output are significant. I became considerably more disciplined in reviewing my own work before passing it on, adopting a habit of cross-referencing outputs against source data rather than assuming correctness.\n\n' +
+          'The second lesson was about asking the right questions early. On more than one occasion, I spent extended time on an analytical path only to discover I had misunderstood the scope of a requirement. Learning to seek early clarification — without projecting a lack of competence — was a professional skill that required deliberate development. As Schön (1983) argues, the ability to reflect in action, to notice when a frame is not working and adjust accordingly, is a defining characteristic of professional practice.\n\n' +
+          'The third lesson was that technical skills matter only when paired with the ability to communicate their outputs. Producing a well-designed SQL stored procedure has no value if the person relying on it cannot understand what it does or trust that it is correct. I learned to document my work clearly and translate technical processes into accessible language for non-technical stakeholders.',
       },
       {
         question: 'What is your value proposition to an employer?',
         answer:
-          'I can move quickly on ambiguous problems. I\'m comfortable with messy data, incomplete ' +
-          'requirements, and figuring things out without needing step-by-step instructions. That\'s ' +
-          'partly from university, partly from running my own photography business, and partly from ' +
-          'managing club finances and sponsorships where there\'s no one above you to ask.\n\n' +
-          'On the technical side, I can write production-quality SQL and Python, I understand how ' +
-          'to design data pipelines end to end, and I\'ve shipped real projects — not just tutorials. ' +
-          'On the professional side, I\'ve worked in a high-stakes client environment and know what ' +
-          'it means to produce work that others will put their name on.',
+          'Reflecting on this experience, I believe my value proposition to a prospective employer lies in the combination of technical capability and professional adaptability I have developed.\n\n' +
+          'From a technical standpoint, I can work with messy, real-world data — not just classroom datasets. I understand how to design data pipelines end to end, write production-quality SQL and Python, and produce outputs that others can rely upon. These skills are grounded in a live, compliance-driven engagement rather than purely academic exercises.\n\n' +
+          'From a professional standpoint, I have demonstrated the capacity to operate in high-stakes environments, manage competing priorities, and communicate meaningfully with diverse stakeholders. My broader experience — managing club finances for 50+ members, leading a photography team at 15,000-person events, and running my own freelance business — reinforces that I can take ownership, remain composed under pressure, and deliver consistently.\n\n' +
+          'In short, I bring both the ability to do the work and the professional maturity to operate within a team that depends on that work.',
       },
       {
-        question: 'How did this shape what roles you\'re interested in?',
+        question: 'How did this internship shape your career direction?',
         answer:
-          'It confirmed that I don\'t want a purely back-end data role where I\'m just building pipelines ' +
-          'in isolation. The part of KPMG I enjoyed most was when the analysis I\'d done actually meant ' +
-          'something — when a reconciliation I\'d built caught an error that would have caused a real ' +
-          'compliance issue. That intersection of technical rigour and business outcome is where I want to be.\n\n' +
-          'I\'m drawn to roles in data engineering, analytics consulting, or applied ML — places where ' +
-          'I\'m solving real problems, not just maintaining infrastructure. Graduate programs like ' +
-          'Industrus Engineering appeal to me specifically because of that variety and the chance to ' +
-          'contribute across different types of projects early on.',
+          'This experience clarified my professional direction in a meaningful way. Prior to the internship, I was drawn broadly to data and technology without a strong sense of the kind of environment in which I wanted to apply those skills. The internship helped me understand that what motivates me is not just the technical challenge itself, but the connection between that challenge and a real-world outcome.\n\n' +
+          'Working on the LSL remediation engagement — knowing that the accuracy of my analysis directly affected the entitlements of real people — gave the work a sense of purpose I had not fully encountered in academic settings. I am now actively drawn to roles in data engineering, applied analytics, and consulting where the work I produce has tangible, meaningful impact: on clients, on organisations, or on communities.\n\n' +
+          'The Industrus Engineering Graduate Program, for example, appeals to me specifically because of the breadth and social value of its projects — from renewable energy infrastructure to disaster recovery planning. These are environments where data, engineering, and human outcomes intersect, which is precisely where I want to contribute.',
       },
+    ],
+    references: [
+      'Gibbs, G. (1988). Learning by doing: A guide to teaching and learning methods. Further Education Unit.',
+      'Schön, D. A. (1983). The reflective practitioner: How professionals think in action. Basic Books.',
     ],
   },
   {
     id: 'academic',
     title: 'Academic & Personal Reflection',
-    subtitle: 'University of Technology Sydney — Data Engineering Journey',
+    subtitle: 'University of Technology Sydney — Engineering Journey',
     date: '2023 – Present',
     sections: [
       {
-        question: 'Why Data Engineering?',
+        question: 'What motivated you to pursue Data Engineering?',
         answer:
-          'I\'d always been more interested in how systems work than memorising facts — I wanted to ' +
-          'build things. Data Engineering felt like the right fit because it sits at the intersection ' +
-          'of software, infrastructure, and analysis. It\'s not just coding for coding\'s sake; every ' +
-          'system you build is eventually in service of a decision or an outcome.\n\n' +
-          'I was also drawn to the breadth of it. The degree forced me to understand networking, ' +
-          'cloud infrastructure, machine learning, and software development — which is exactly the ' +
-          'kind of generalist-with-depth background I wanted going into the workforce.',
+          'My decision to study Data Engineering at the University of Technology Sydney was not the product of a single moment of clarity, but rather the gradual accumulation of experiences that pointed me toward a discipline where technical rigour and real-world application converge.\n\n' +
+          'From a young age I was drawn to understanding how systems work beneath the surface — not just using technology, but designing and interrogating it. When I began exploring degree options, I found that Data Engineering offered something rare: the breadth of software development, the depth of data science, and the practical demands of infrastructure management. It was, in essence, an invitation to build things that mattered.\n\n' +
+          'I was also motivated by the observation that data is increasingly the mechanism through which significant decisions — clinical, commercial, environmental, and social — are made. The opportunity to contribute meaningfully to that process felt both intellectually compelling and professionally purposeful. Moon (2004) argues that motivation grounded in personal meaning, rather than extrinsic reward alone, is foundational to deep and sustained learning. My experience has borne this out.',
       },
       {
-        question: 'What\'s been the most significant learning experience?',
+        question: 'What has been the most significant learning experience?',
         answer:
-          'Honestly, running my own home server has probably taught me more than most of my coursework — ' +
-          'not because the coursework wasn\'t good, but because when something breaks in production and ' +
-          'it\'s your own system, you have to actually fix it. I\'ve set up TrueNAS, Pi-hole, Docker ' +
-          'stacks, DNS routing, and self-hosted web apps. When something goes down, you debug it properly.\n\n' +
-          'On the academic side, the cancer tumour detection project was a turning point. Getting to ' +
-          '98% accuracy sounds impressive on a slide, but the process — iterating on the architecture, ' +
-          'tuning augmentation pipelines, evaluating false negative rates in a medical context — taught ' +
-          'me that building ML models is mostly careful engineering, not magic.\n\n' +
-          'My Honours project on NLP-based document extraction is shaping up to be the most challenging ' +
-          'thing I\'ve taken on. Working with real-world OCR text is genuinely messy, and the gap between ' +
-          '"LLMs can do this" and "LLMs reliably do this under real conditions" is where the interesting ' +
-          'research lives.',
+          'Two experiences stand out as genuinely transformative.\n\n' +
+          'The first was developing a machine learning model for breast cancer tumour recognition using TensorFlow and YOLOv5. What made this experience significant was not merely the technical achievement — achieving 98% detection accuracy — but the ethical dimension it surfaced. Working on a system designed to assist in medical diagnosis required me to sit with the weight of false negatives in a way that no other project had. I found myself thinking about what it means to build tools that affect human lives, and how that responsibility should shape every architectural decision. This was the moment I understood that engineering is not a neutral practice.\n\n' +
+          'The second experience has been building and maintaining my home server infrastructure. Running TrueNAS, Pi-hole, Docker Compose stacks, and self-hosted applications in a live environment forced me to close the gap between theory and practice in a way that coursework alone could not. When a service fails at 11pm and you are the only person who can fix it, the learning is immediate and durable. Kolb (1984) describes this kind of direct, consequential experience as essential to the formation of genuine competence — and this environment has consistently provided it.\n\n' +
+          'My current Honours research — investigating NLP and LLM techniques for structured extraction from OCR-generated documents — is extending this pattern. Working with real-world documents (receipts, invoices, forms) has confronted me with the genuine difficulty of the problem: OCR errors, inconsistent formatting, and the gap between what a language model can do in a demo and what it does reliably under production conditions.',
       },
       {
         question: 'How have you grown as an engineering professional?',
         answer:
-          'I\'ve got a lot more comfortable with uncertainty. Early on I wanted clear requirements and ' +
-          'a defined path before starting anything. Now I\'m better at scoping a problem, making a ' +
-          'reasonable decision with incomplete information, and iterating from there.\n\n' +
-          'Managing the UTS Taekwondo Society finances for two years — 50+ members, competition travel, ' +
-          'membership payments — gave me a real sense of what it means to be accountable to a group of ' +
-          'people who are counting on you to have things sorted. That kind of low-drama reliability is ' +
-          'something I\'ve tried to carry into technical work too.\n\n' +
-          'The photography side has also shaped how I think about delivery. When you\'re the only ' +
-          'photographer at a 15,000-person convention coordinating a team of OTD photographers, ' +
-          'managing the archive, and making sure communication doesn\'t fall apart — you learn to stay ' +
-          'calm, triage fast, and keep moving.',
+          'Looking back across my university years, the most meaningful dimension of my growth has been the development of professional identity — a clearer sense of who I am as an engineer and what I stand for in a professional context.\n\n' +
+          'Early in my studies, I equated professional competence almost entirely with technical skill. What I have come to understand, through my internship at KPMG, my leadership roles across UTS clubs, and my independent work as a photographer, is that technical skill is a necessary but insufficient condition for professional effectiveness. The capacity to lead under ambiguity, communicate with clarity, and take genuine ownership of outcomes is what distinguishes a competent technician from a trusted professional.\n\n' +
+          'Managing the UTS Taekwondo Society finances for two years — overseeing 50+ members, competition travel, and membership operations — taught me that reliability is a form of leadership. People trust you not because of what you say, but because of what consistently happens when you are responsible for something. I have carried this understanding into every subsequent role.\n\n' +
+          'Leading the On the Day (OTD) photography team at SMASH! Convention reinforced this further. Coordinating a team of photographers across a 15,000-person event, managing the photo archive, and keeping communications clear under pressure required the same kind of structured, calm execution that I now apply to technical work. I no longer see a separation between "soft" and "hard" skills — both are expressions of the same underlying discipline.\n\n' +
+          'As Mezirow (1991) observed, transformative learning occurs when our assumptions are challenged in ways that require us to revise our understanding. My engineering journey has been a series of such transformations — each one expanding what I believe is possible and sharpening my sense of purpose.',
       },
+    ],
+    references: [
+      'Kolb, D. A. (1984). Experiential learning: Experience as the source of learning and development. Prentice Hall.',
+      'Mezirow, J. (1991). Transformative dimensions of adult learning. Jossey-Bass.',
+      'Moon, J. A. (2004). A handbook of reflective and experiential learning: Theory and practice. RoutledgeFalmer.',
     ],
   },
 ]
@@ -142,6 +108,11 @@ export default function Reflections() {
       <div className="container">
         <p className="section-label">04. Reflections</p>
         <h2 className="section-title">Professional Reflections</h2>
+        <p style={{ color: 'var(--text-secondary)', fontSize: '15px', marginBottom: '40px', maxWidth: '680px' }}>
+          Critical reflections on professional and personal growth as an engineer.
+          Written using Gibbs' Reflective Cycle and Schön's reflective practice framework.
+          All references formatted in <strong style={{ color: 'var(--text-primary)' }}>APA 7th Edition</strong>.
+        </p>
 
         {/* Tab selector */}
         <div style={{ display: 'flex', gap: '12px', marginBottom: '40px', flexWrap: 'wrap' }}>
@@ -222,6 +193,38 @@ export default function Reflections() {
               </div>
             ))}
           </div>
+
+          {/* References */}
+          {active.references && (
+            <div style={{
+              marginTop: '28px',
+              paddingTop: '20px',
+              borderTop: '1px solid var(--border)',
+            }}>
+              <div style={{
+                fontFamily: 'var(--font-mono)',
+                fontSize: '12px',
+                color: 'var(--accent)',
+                marginBottom: '12px',
+                letterSpacing: '0.06em',
+                textTransform: 'uppercase',
+              }}>
+                References (APA 7th Edition)
+              </div>
+              {active.references.map((ref, i) => (
+                <p key={i} style={{
+                  color: 'var(--text-secondary)',
+                  fontSize: '13px',
+                  lineHeight: 1.7,
+                  marginBottom: i < active.references!.length - 1 ? '8px' : '0',
+                  paddingLeft: '24px',
+                  textIndent: '-24px',
+                }}>
+                  {ref}
+                </p>
+              ))}
+            </div>
+          )}
         </div>
 
         <p style={{
