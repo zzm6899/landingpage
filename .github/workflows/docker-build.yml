@@ -1,9 +1,18 @@
-name: Build and Push Docker Image
+name: Build & Push Landing Page Docker Image
 
 on:
   push:
-    branches: ["main"]
-  workflow_dispatch:   # allows manual trigger from the Actions tab
+    branches: [ "main" ]
+    paths:
+      - 'src/**'
+      - 'public/**'
+      - 'Dockerfile'
+      - 'nginx.conf'
+      - 'package*.json'
+      - 'vite.config.ts'
+      - 'tsconfig*.json'
+      - 'index.html'
+  workflow_dispatch:  # Allows manual trigger from GitHub Actions tab
 
 env:
   REGISTRY: ghcr.io
@@ -36,9 +45,6 @@ jobs:
             type=raw,value=latest
             type=sha,prefix=sha-
 
-      - name: Set up Docker Buildx
-        uses: docker/setup-buildx-action@v3
-
       - name: Build and push Docker image
         uses: docker/build-push-action@v5
         with:
@@ -46,5 +52,3 @@ jobs:
           push: true
           tags: ${{ steps.meta.outputs.tags }}
           labels: ${{ steps.meta.outputs.labels }}
-          cache-from: type=gha
-          cache-to: type=gha,mode=max
