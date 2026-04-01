@@ -140,7 +140,7 @@ export default function Navbar() {
 
       {/* Mobile menu */}
       {menuOpen && (
-        <div style={{
+        <div className="nav-mobile-menu" style={{
           position: 'absolute',
           top: '72px',
           left: 0,

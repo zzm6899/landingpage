@@ -30,6 +30,10 @@ export default function App() {
     )
     cards.forEach(card => {
       card.classList.add('reveal')
+      // Stagger based on sibling index for natural cascade effect
+      const siblings = Array.from(card.parentElement?.children ?? [])
+      const index = siblings.indexOf(card)
+      ;(card as HTMLElement).style.setProperty('--stagger', String(index))
       observer.observe(card)
     })
     return () => observer.disconnect()
