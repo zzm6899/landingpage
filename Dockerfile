@@ -3,6 +3,9 @@ FROM node:22-alpine AS builder
 
 WORKDIR /app
 
+# Upgrade npm to match lockfile generation version
+RUN npm install -g npm@latest
+
 # Copy dependency manifests first for better layer caching
 COPY package*.json ./
 
