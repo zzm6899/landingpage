@@ -421,61 +421,17 @@ a:hover { color: #79c0ff; }
   z-index: 1;
 }
 
-.hero-intro::before {
-  content: '•';
-  display: inline-block;
-  width: 0;
-  height: 1.2em;
-  vertical-align: sub;
-  margin: 0 6px;
-  font-size: 24px;
-  color: var(--accent);
-  animation: pulseGlow 2s ease-in-out infinite;
-}
-
 .hero-name {
   animation: fadeInUp 0.7s cubic-bezier(0.22, 1, 0.36, 1) both;
   animation-delay: 0.22s;
   position: relative;
   z-index: 1;
-  text-shadow: 0 2px 12px rgba(88, 166, 255, 0.2);
-}
-
-.hero-name::before {
-  content: 'Zac Morgan';
-  position: absolute;
-  inset: 0;
-  color: var(--accent);
-  font-weight: 800;
-  z-index: -1;
-  background: linear-gradient(125deg, var(--accent), var(--accent-2), var(--accent));
-  background-size: 200% 100%;
-  -webkit-background-clip: text;
-  background-clip: text;
-  filter: blur(1px);
-  animation: gradientShift 3s ease-in-out infinite, shimmer 2s linear infinite;
 }
 
 .hero-role {
   animation: fadeInUp 0.7s cubic-bezier(0.22, 1, 0.36, 1) both;
   animation-delay: 0.34s;
   position: relative;
-  text-shadow: 0 1px 8px rgba(139, 148, 158, 0.3);
-}
-
-.hero-desc {
-  animation: fadeInUp 0.7s cubic-bezier(0.22, 1, 0.36, 1) both;
-  animation-delay: 0.46s;
-}
-
-.hero-cta {
-  animation: fadeInUp 0.7s cubic-bezier(0.22, 1, 0.36, 1) both;
-  animation-delay: 0.58s;
-}
-
-.hero-role {
-  animation: fadeInUp 0.7s cubic-bezier(0.22, 1, 0.36, 1) both;
-  animation-delay: 0.34s;
 }
 
 .hero-desc {
@@ -687,25 +643,14 @@ a:hover { color: #79c0ff; }
 
 /* ─── Hero floating animations ─────────────────────────────────────────── */
 .hero-blob {
-  animation: float 7s ease-in-out infinite;
   filter: blur(40px);
   z-index: 0;
+  opacity: 0.6;
 }
 
 .hero-blob-2 {
-  animation: floatSlow 11s ease-in-out infinite;
   filter: blur(50px);
   z-index: 0;
-}
-
-.hero-blob::before,
-.hero-blob::after {
-  content: '';
-  position: absolute;
-  inset: -20px;
-  background: inherit;
-  border-radius: inherit;
-  filter: blur(60px);
   opacity: 0.5;
 }
 
@@ -982,76 +927,11 @@ a:hover { color: #79c0ff; }
 
 
 /* ────────────────────────────────────────────────────────────────────────── */
-/* ✨ ENHANCEMENTS: Advanced Animations & Visual Effects ✨ */
+/* ✨ ENHANCEMENTS: UI Polish & Visual Effects ✨ */
 /* ────────────────────────────────────────────────────────────────────────── */
 
-/* ─── Particles Background System ─────────────────────────────────────────── */
-/* Decorative particles with twinkling animation for a starry/circuit effect */
-#hero .particles,
-#projects .particles {
-  position: absolute;
-  inset: 0;
-  margin: -10px;
-  pointer-events: none;
-  z-index: 0;
-}
-
-#hero .particles,
-#about .particles {
-  animation: particleDrift 20s ease-in-out infinite;
-}
-
-#projects .particles {
-  animation: particleFlow 15s linear infinite;
-}
-
-@keyframes particleDrift {
-  0%, 100% { opacity: 0.3; transform: translate(0, 0) rotate(0deg); }
-  25% { opacity: 0.5; transform: translate(-10px, 15px) rotate(2deg); }
-  50% { opacity: 0.4; transform: translate(15px, -10px) rotate(-1deg); }
-  75% { opacity: 0.6; transform: translate(-15px, 8px) rotate(3deg); }
-}
-
-@keyframes particleFlow {
-  0% { opacity: 0.3; transform: translate(0, 0) rotate(0deg); }
-  50% { opacity: 0.6; transform: translate(-20px, 25px) rotate(-3deg); }
-  100% { opacity: 0.3; transform: translate(0, 0) rotate(0deg); }
-}
-
-/* ─── Floating Grid Effect ─────────────────────────────────────────────────── */
-/* Adds a subtle rotating grid overlay for depth perception */
-#hero .grid-overlay,
-#projects .grid-overlay {
-  position: absolute;
-  inset: 0;
-  border: 1px solid transparent;
-  border-radius: inherit;
-  pointer-events: none;
-  z-index: 0;
-  overflow: hidden;
-  opacity: 0.4;
-}
-
-#hero .grid-overlay::before,
-#projects .grid-overlay::before {
-  content: '';
-  position: absolute;
-  inset: -50px;
-  background: linear-gradient(135deg, rgba(88, 166, 255, 0.15), transparent 60%, rgba(63, 185, 80, 0.15), transparent 100%);
-  background-size: 200% 200%;
-  transform: rotate(45deg);
-  animation: gradientRotate 10s linear infinite;
-}
-
-@keyframes gradientRotate {
-  0% { transform: rotate(45deg) translate(0, 0); }
-  50% { transform: rotate(205deg) translate(-100px, 100px); }
-  100% { transform: rotate(405deg) translate(0, 0); }
-}
-
-
-/* ─── Mesh Gradient Animation ─────────────────────────────────────────────── */
-/* Multi-layer mesh gradients for rich visual texture */
+/* ─── Mesh Gradient Background ──────────────────────────────────────────────────── */
+/* Subtle multi-layer mesh gradients for visual texture */
 #hero,
 #about,
 #projects,
@@ -1060,14 +940,14 @@ a:hover { color: #79c0ff; }
 #cover-letter,
 #contact {
   background:
-    radial-gradient(600px circle at 20% 80%, rgba(88, 166, 255, 0.04), transparent 50%),
+    radial-gradient(600px circle at 20% 80%, rgba(88, 166, 255, 0.03), transparent 50%),
     radial-gradient(500px circle at 80% 20%, rgba(63, 185, 80, 0.03), transparent 50%),
     radial-gradient(400px circle at 50% 50%, rgba(88, 166, 255, 0.02), transparent 40%),
     var(--bg-primary);
 }
 
-/* ─── Animated Corner Blobs ────────────────────────────────────────────────── */
-/* Decorative corners with soft glow */
+/* ─── Corner Blobs ───────────────────────────────────────────────────────────── */
+/* Subtle corner glows for visual polish */
 .section {
   position: relative;
 }
@@ -1076,117 +956,91 @@ a:hover { color: #79c0ff; }
 .section::after {
   content: '';
   position: absolute;
-  width: 150px;
-  height: 150px;
-  background: radial-gradient(circle, rgba(88, 166, 255, 0.08), transparent 70%);
+  width: 100px;
+  height: 100px;
+  background: radial-gradient(circle, rgba(88, 166, 255, 0.06), transparent 70%);
   border-radius: 50%;
-  filter: blur(30px);
+  filter: blur(20px);
   pointer-events: none;
   z-index: -1;
-  opacity: 0.5;
-  animation: cornerPulse 8s ease-in-out infinite;
+  opacity: 0.4;
 }
 
 .section::before {
-  top: -80px;
-  left: -80px;
-  animation-delay: 0s;
+  top: -50px;
+  left: -50px;
 }
 
 .section::after {
-  bottom: -80px;
-  right: -80px;
-  animation-delay: 4s;
+  bottom: -50px;
+  right: -50px;
 }
 
-@keyframes cornerPulse {
-  0%, 100% { transform: scale(1) rotate(0deg); }
-  33% { transform: scale(1.15) rotate(90deg); }
-  66% { transform: scale(1) rotate(180deg); }
-}
-
-/* ─── Ripple Effect ────────────────────────────────────────────────────────── */
-/* Button ripple animation */
-.btn-primary,
-.btn-outline {
-  position: relative;
-  overflow: hidden;
-}
-
-.btn-primary::before,
-.btn-outline::before {
-  content: '';
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  width: 0;
-  height: 0;
-  border-radius: 50%;
-  background: radial-gradient(400px circle, rgba(88, 166, 255, 0.2), transparent 60%);
-  transform: translate(-50%, -50%);
-  transition: width 0.6s ease, height 0.6s ease, opacity 0.6s ease;
-}
-
-.btn-primary:hover::before,
-.btn-outline:hover::before {
-  width: 300%;
-  height: 300%;
-  opacity: 0;
-}
-
-.btn-primary:hover::after,
-.btn-outline:hover::after {
-  content: '';
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  width: 0;
-  height: 0;
-  border-radius: 50%;
-  background: radial-gradient(300px circle, rgba(63, 185, 80, 0.2), transparent 60%);
-  transform: translate(-50%, -50%);
-  transition: width 0.8s ease, height 0.8s ease, opacity 0.8s ease;
-}
-
-.btn-primary::after,
-.btn-outline::after {
-  content: '';
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  width: 0;
-  height: 0;
-  border-radius: 50%;
-  background: radial-gradient(300px circle, rgba(63, 185, 80, 0.2), transparent 60%);
-  transform: translate(-50%, -50%);
-  transition: width 0.8s ease, height 0.8s ease, opacity 0.8s ease;
-}
-
-/* ─── Glow Effect ──────────────────────────────────────────────────────────── */
-/* Ambient glow on cards and sections */
-.glow-element {
+/* ─── Hover Spotlight Effect ───────────────────────────────────────────────────── */
+/* Subtle hover glow on interactive elements */
+.hover-glow {
   position: relative;
 }
 
-.glow-element::before {
+.hover-glow::before {
   content: '';
   position: absolute;
   inset: -2px;
   background: inherit;
   border-radius: inherit;
-  filter: blur(12px);
+  filter: blur(10px);
   opacity: 0;
   z-index: -1;
-  transition: opacity 0.4s ease;
-  mix-blend-mode: screen;
+  transition: opacity 0.3s ease;
 }
 
-.glow-element:hover::before {
-  opacity: 0.3;
+.hover-glow:hover::before {
+  opacity: 0.2;
 }
 
-/* ─── Luminous Line Effect ─────────────────────────────────────────────────── */
-/* Animated glowing border for sections */
+/* ─── Shimmer Effect ──────────────────────────────────────────────────────────── */
+/* Gentle shimmer on hover */
+.shimmer {
+  position: relative;
+  overflow: hidden;
+}
+
+.shimmer::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(90deg, transparent, rgba(88, 166, 255, 0.1), transparent);
+  transform: translateX(-100%);
+  transition: transform 0.4s ease;
+}
+
+.shimmer:hover::before {
+  transform: translateX(100%);
+}
+
+/* ─── Animated Corner Accents ────────────────────────────────────────────────── */
+/* Gradient corner accents for modern look */
+#hero::before,
+#about::before,
+#projects::before,
+#experience::before,
+#reflections::before,
+#cover-letter::before,
+#contact::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 150px;
+  height: 150px;
+  background: linear-gradient(135deg, rgba(88, 166, 255, 0.08), transparent);
+  border-radius: 0 100% 100% 0;
+  pointer-events: none;
+  z-index: -1;
+}
+
+/* ─── Luminous Border ─────────────────────────────────────────────────────────── */
+/* Subtle animated border effect */
 .section-luminous {
   position: relative;
 }
@@ -1197,20 +1051,10 @@ a:hover { color: #79c0ff; }
   inset: 0;
   border: 1px solid transparent;
   border-radius: inherit;
-  padding: 2px;
-  background: linear-gradient(90deg, transparent, rgba(88, 166, 255, 0.3), transparent),
-              linear-gradient(180deg, transparent, rgba(63, 185, 80, 0.3), transparent);
-  background-size: 200% 100%, 100% 200%;
-  mask: linear-gradient(#fff, #fff), linear-gradient(#000, #000);
-  -webkit-mask: linear-gradient(#fff, #fff), linear-gradient(#000, #000);
-  mask-composite: exclude;
-  -webkit-mask-composite: xor;
-  opacity: 0.4;
-  animation: borderFlow 8s linear infinite;
-}
-
-@keyframes borderFlow {
-  0%, 100% { background-position: 0% 0%, 0% 0%; }
-  50% { background-position: 100% 100%, 100% 100%; }
+  padding: 1px;
+  background: linear-gradient(90deg, transparent, rgba(88, 166, 255, 0.15), transparent);
+  background-size: 200% 100%;
+  animation: shimmer 3s linear infinite;
+  opacity: 0.3;
 }
 
