@@ -979,3 +979,238 @@ a:hover { color: #79c0ff; }
   0% { transform: translateX(-100%); }
   100% { transform: translateX(100%); }
 }
+
+
+/* ────────────────────────────────────────────────────────────────────────── */
+/* ✨ ENHANCEMENTS: Advanced Animations & Visual Effects ✨ */
+/* ────────────────────────────────────────────────────────────────────────── */
+
+/* ─── Particles Background System ─────────────────────────────────────────── */
+/* Decorative particles with twinkling animation for a starry/circuit effect */
+#hero .particles,
+#projects .particles {
+  position: absolute;
+  inset: 0;
+  margin: -10px;
+  pointer-events: none;
+  z-index: 0;
+}
+
+#hero .particles,
+#about .particles {
+  animation: particleDrift 20s ease-in-out infinite;
+}
+
+#projects .particles {
+  animation: particleFlow 15s linear infinite;
+}
+
+@keyframes particleDrift {
+  0%, 100% { opacity: 0.3; transform: translate(0, 0) rotate(0deg); }
+  25% { opacity: 0.5; transform: translate(-10px, 15px) rotate(2deg); }
+  50% { opacity: 0.4; transform: translate(15px, -10px) rotate(-1deg); }
+  75% { opacity: 0.6; transform: translate(-15px, 8px) rotate(3deg); }
+}
+
+@keyframes particleFlow {
+  0% { opacity: 0.3; transform: translate(0, 0) rotate(0deg); }
+  50% { opacity: 0.6; transform: translate(-20px, 25px) rotate(-3deg); }
+  100% { opacity: 0.3; transform: translate(0, 0) rotate(0deg); }
+}
+
+/* ─── Floating Grid Effect ─────────────────────────────────────────────────── */
+/* Adds a subtle rotating grid overlay for depth perception */
+#hero .grid-overlay,
+#projects .grid-overlay {
+  position: absolute;
+  inset: 0;
+  border: 1px solid transparent;
+  border-radius: inherit;
+  pointer-events: none;
+  z-index: 0;
+  overflow: hidden;
+  opacity: 0.4;
+}
+
+#hero .grid-overlay::before,
+#projects .grid-overlay::before {
+  content: '';
+  position: absolute;
+  inset: -50px;
+  background: linear-gradient(135deg, rgba(88, 166, 255, 0.15), transparent 60%, rgba(63, 185, 80, 0.15), transparent 100%);
+  background-size: 200% 200%;
+  transform: rotate(45deg);
+  animation: gradientRotate 10s linear infinite;
+}
+
+@keyframes gradientRotate {
+  0% { transform: rotate(45deg) translate(0, 0); }
+  50% { transform: rotate(205deg) translate(-100px, 100px); }
+  100% { transform: rotate(405deg) translate(0, 0); }
+}
+
+
+/* ─── Mesh Gradient Animation ─────────────────────────────────────────────── */
+/* Multi-layer mesh gradients for rich visual texture */
+#hero,
+#about,
+#projects,
+#experience,
+#reflections,
+#cover-letter,
+#contact {
+  background:
+    radial-gradient(600px circle at 20% 80%, rgba(88, 166, 255, 0.04), transparent 50%),
+    radial-gradient(500px circle at 80% 20%, rgba(63, 185, 80, 0.03), transparent 50%),
+    radial-gradient(400px circle at 50% 50%, rgba(88, 166, 255, 0.02), transparent 40%),
+    var(--bg-primary);
+}
+
+/* ─── Animated Corner Blobs ────────────────────────────────────────────────── */
+/* Decorative corners with soft glow */
+.section {
+  position: relative;
+}
+
+.section::before,
+.section::after {
+  content: '';
+  position: absolute;
+  width: 150px;
+  height: 150px;
+  background: radial-gradient(circle, rgba(88, 166, 255, 0.08), transparent 70%);
+  border-radius: 50%;
+  filter: blur(30px);
+  pointer-events: none;
+  z-index: -1;
+  opacity: 0.5;
+  animation: cornerPulse 8s ease-in-out infinite;
+}
+
+.section::before {
+  top: -80px;
+  left: -80px;
+  animation-delay: 0s;
+}
+
+.section::after {
+  bottom: -80px;
+  right: -80px;
+  animation-delay: 4s;
+}
+
+@keyframes cornerPulse {
+  0%, 100% { transform: scale(1) rotate(0deg); }
+  33% { transform: scale(1.15) rotate(90deg); }
+  66% { transform: scale(1) rotate(180deg); }
+}
+
+/* ─── Ripple Effect ────────────────────────────────────────────────────────── */
+/* Button ripple animation */
+.btn-primary,
+.btn-outline {
+  position: relative;
+  overflow: hidden;
+}
+
+.btn-primary::before,
+.btn-outline::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 0;
+  height: 0;
+  border-radius: 50%;
+  background: radial-gradient(400px circle, rgba(88, 166, 255, 0.2), transparent 60%);
+  transform: translate(-50%, -50%);
+  transition: width 0.6s ease, height 0.6s ease, opacity 0.6s ease;
+}
+
+.btn-primary:hover::before,
+.btn-outline:hover::before {
+  width: 300%;
+  height: 300%;
+  opacity: 0;
+}
+
+.btn-primary:hover::after,
+.btn-outline:hover::after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 0;
+  height: 0;
+  border-radius: 50%;
+  background: radial-gradient(300px circle, rgba(63, 185, 80, 0.2), transparent 60%);
+  transform: translate(-50%, -50%);
+  transition: width 0.8s ease, height 0.8s ease, opacity 0.8s ease;
+}
+
+.btn-primary::after,
+.btn-outline::after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 0;
+  height: 0;
+  border-radius: 50%;
+  background: radial-gradient(300px circle, rgba(63, 185, 80, 0.2), transparent 60%);
+  transform: translate(-50%, -50%);
+  transition: width 0.8s ease, height 0.8s ease, opacity 0.8s ease;
+}
+
+/* ─── Glow Effect ──────────────────────────────────────────────────────────── */
+/* Ambient glow on cards and sections */
+.glow-element {
+  position: relative;
+}
+
+.glow-element::before {
+  content: '';
+  position: absolute;
+  inset: -2px;
+  background: inherit;
+  border-radius: inherit;
+  filter: blur(12px);
+  opacity: 0;
+  z-index: -1;
+  transition: opacity 0.4s ease;
+  mix-blend-mode: screen;
+}
+
+.glow-element:hover::before {
+  opacity: 0.3;
+}
+
+/* ─── Luminous Line Effect ─────────────────────────────────────────────────── */
+/* Animated glowing border for sections */
+.section-luminous {
+  position: relative;
+}
+
+.section-luminous::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border: 1px solid transparent;
+  border-radius: inherit;
+  padding: 2px;
+  background: linear-gradient(90deg, transparent, rgba(88, 166, 255, 0.3), transparent),
+              linear-gradient(180deg, transparent, rgba(63, 185, 80, 0.3), transparent);
+  background-size: 200% 100%, 100% 200%;
+  mask: linear-gradient(#fff, #fff), linear-gradient(#000, #000);
+  -webkit-mask: linear-gradient(#fff, #fff), linear-gradient(#000, #000);
+  mask-composite: exclude;
+  -webkit-mask-composite: xor;
+  opacity: 0.4;
+  animation: borderFlow 8s linear infinite;
+}
+
+@keyframes borderFlow {
+  0%, 100% { background-position: 0% 0%, 0% 0%; }
+  50% { background-position: 100% 100%, 100% 100%; }
+}
+
