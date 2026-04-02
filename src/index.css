@@ -33,7 +33,7 @@ body {
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif;
   font-size: 16px;
   line-height: 1.6;
-  -webkit-font-smoothing: antialiased;
+  -webkit-text-rendering: optimizeLegibility;
 }
 
 a { color: var(--accent); text-decoration: none; transition: color var(--transition); }
@@ -63,14 +63,34 @@ a:hover { color: #79c0ff; }
   margin-bottom: 12px;
 }
 
+.section-label {
+  position: relative;
+}
+
 .section-label::after {
   content: '';
   display: block;
   flex: 1;
   height: 1px;
-  background: var(--border);
-  max-width: 260px;
-  animation: lineGrow 0.8s cubic-bezier(0.22, 1, 0.36, 1) both;
+  background: linear-gradient(90deg, var(--border), var(--accent), var(--border));
+  background-size: 200% 100%;
+  animation: lineGrow 0.8s cubic-bezier(0.22, 1, 0.36, 1) both, shimmer 3s linear infinite;
+}
+
+.section-label::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: -100%;
+  width: 100%;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, var(--accent), transparent);
+  animation: shine 2s ease-in-out infinite;
+}
+
+@keyframes shine {
+  0% { left: -100%; }
+  100% { left: 100%; }
 }
 
 .section-title {
@@ -78,6 +98,8 @@ a:hover { color: #79c0ff; }
   font-weight: 700;
   color: var(--text-primary);
   margin-bottom: 48px;
+  text-shadow: 0 2px 16px rgba(240, 246, 252, 0.2);
+  letter-spacing: -0.02em;
 }
 
 .card {
@@ -85,23 +107,134 @@ a:hover { color: #79c0ff; }
   border: 1px solid var(--border);
   border-radius: var(--radius-lg);
   padding: 28px;
-  transition: border-color var(--transition), background var(--transition), transform var(--transition), box-shadow var(--transition);
+  transition: all 0.3s cubic-bezier(0.22, 1, 0.36, 1);
+  position: relative;
+  overflow: hidden;
+}
+
+.card::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(135deg, transparent, rgba(88, 166, 255, 0.05), transparent);
+  transform: translateX(-100%);
+  animation: shimmer 3s ease-in-out infinite;
 }
 
 .card:hover {
   border-color: var(--border-accent);
   background: var(--bg-card-hover);
   box-shadow: var(--shadow-glow);
+  transform: translateY(-4px);
 }
 
-/* Projects section: hover handled via inline JS */
+/* Projects section: enhanced hover ───────────────────────────────────────────── */
+#projects .card {
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  padding: 28px;
+  transition: all 0.3s cubic-bezier(0.22, 1, 0.36, 1);
+  position: relative;
+  overflow: hidden;
+}
+
+#projects .card::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(135deg, rgba(88, 166, 255, 0.02), rgba(63, 185, 80, 0.02));
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
 #projects .card:hover {
-  transform: none;
-  box-shadow: none;
+  border-color: var(--accent);
+  background: var(--bg-card-hover);
+  transform: translateY(-4px);
+}
+
+#projects .card:hover::before {
+  opacity: 1;
+}
+
+#projects .card::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  background: linear-gradient(90deg, transparent, rgba(88, 166, 255, 0.1), transparent);
+  transform: translateX(-100%);
+  animation: shimmer 3s ease-in-out infinite;
+}
+
+/* ─── Project title glow ───────────────────────────────────────────────────── */
+#projects h3 {
+  position: relative;
+  color: var(--text-primary);
+}
+
+#projects h3::before {
+  content: attr(data-title);
+  position: absolute;
+  inset: 0;
+  color: var(--accent);
+  z-index: -1;
+  background: linear-gradient(125deg, var(--accent), var(--accent-2), var(--accent));
+  background-size: 200% 100%;
+  -webkit-background-clip: text;
+  background-clip: text;
+  filter: blur(3px);
+  animation: gradientTextShift 4s ease-in-out infinite;
+}
+
+/* ─── Project tag enhancements ─────────────────────────────────────────────── */
+#projects .tag {
+  animation: fadeIn 0.5s ease both;
+  animation-delay: calc(var(--stagger, 0) * 0.05s);
+}
+
+/* ─── Project cards staggered reveal ───────────────────────────────────────── */
+#projects .card.reveal {
+  animation: cardReveal 0.55s cubic-bezier(0.22, 1, 0.36, 1) forwards paused;
+  animation-delay: calc(var(--stagger, 0) * 0.08s);
+}
+
+#projects .card.reveal.is-visible {
+  animation-play-state: running;
+}
+
+/* ─── Card tilt effect for desktop ──────────────────────────────────── */
+@media (min-width: 769px) {
+  #about .card:not(#experience .card):hover,
+  #projects .card:hover {
+    transform: perspective(1000px) rotateX(5deg) rotateY(3deg) translateY(-8px);
+  }
+}
+
+/* ─── Floating stats numbers ────────────────────────────────────── */
+.hero-stats div {
+  animation: float 6s ease-in-out infinite;
+  animation-delay: calc(var(--stagger, 0) * 0.15s);
+}
+
+.hero-stats div:nth-child(2) {
+  animation-delay: calc(var(--stagger, 0) * 0.3s);
+}
+
+.hero-stats div:nth-child(3) {
+  animation-delay: calc(var(--stagger, 0) * 0.45s);
+}
+
+.hero-stats div:nth-child(4) {
+  animation-delay: calc(var(--stagger, 0) * 0.6s);
 }
 
 .tag {
-  display: inline-block;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
   font-family: var(--font-mono);
   font-size: 12px;
   padding: 3px 10px;
@@ -109,13 +242,25 @@ a:hover { color: #79c0ff; }
   background: var(--accent-glow);
   color: var(--accent);
   border: 1px solid var(--border-accent);
-  transition: transform 0.15s ease, box-shadow 0.15s ease, background 0.15s ease;
+  transition: all 0.2s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.tag::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(90deg, transparent, rgba(88, 166, 255, 0.3), transparent);
+  transform: translateX(-100%);
+  animation: shimmer 2.5s linear infinite;
 }
 
 .tag:hover {
-  transform: scale(1.08);
-  box-shadow: 0 0 10px rgba(88, 166, 255, 0.25);
-  background: rgba(88, 166, 255, 0.22);
+  transform: scale(1.08) translateY(-2px);
+  box-shadow: 0 4px 12px rgba(88, 166, 255, 0.25);
+  background: rgba(88, 166, 255, 0.28);
+  border-color: var(--accent);
 }
 
 .btn {
@@ -136,23 +281,71 @@ a:hover { color: #79c0ff; }
   color: #0d1117;
 }
 
+.btn-primary {
+  position: relative;
+  overflow: hidden;
+  z-index: 1;
+}
+
+.btn-primary::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(125deg, var(--accent), var(--accent-2), var(--accent));
+  opacity: 0;
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.4s ease;
+  z-index: -1;
+}
+
+.btn-primary:hover::before {
+  opacity: 0.1;
+  transform: scaleX(1);
+}
+
+.btn-primary::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+  transform: translateX(-100%);
+  animation: shimmer 2s linear infinite;
+}
+
 .btn-primary:hover {
   background: #79c0ff;
   color: #0d1117;
   transform: translateY(-2px);
-  box-shadow: 0 6px 20px rgba(88, 166, 255, 0.35);
+  box-shadow: 0 8px 24px rgba(88, 166, 255, 0.35);
 }
 
 .btn-outline {
   background: transparent;
   color: var(--accent);
   border: 1px solid var(--accent);
+  position: relative;
+  overflow: hidden;
+}
+
+.btn-outline::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(125deg, rgba(88, 166, 255, 0.15), rgba(63, 185, 80, 0.15));
+  opacity: 0;
+  transition: opacity 0.3s ease;
 }
 
 .btn-outline:hover {
   background: var(--accent-glow);
+  border-color: var(--accent);
   transform: translateY(-2px);
-  box-shadow: 0 4px 14px rgba(88, 166, 255, 0.2);
+  box-shadow: 0 6px 20px rgba(88, 166, 255, 0.2);
+}
+
+.btn-outline:hover::before {
+  opacity: 0.4;
 }
 
 /* ─── Scrollbar ──────────────────────────────────────────────────────── */
@@ -175,18 +368,44 @@ a:hover { color: #79c0ff; }
 
 /* ─── Scroll reveal ──────────────────────────────────────────────────── */
 @keyframes cardReveal {
-  from { opacity: 0; transform: translateY(28px); }
+  from { opacity: 0; transform: translateY(40px); }
   to   { opacity: 1; transform: translateY(0); }
 }
 
 .card.reveal {
   opacity: 0;
-  animation: cardReveal 0.55s cubic-bezier(0.22, 1, 0.36, 1) forwards paused;
-  animation-delay: calc(var(--stagger, 0) * 0.09s);
+  animation: cardReveal 0.6s cubic-bezier(0.22, 1, 0.36, 1) forwards paused;
+  animation-delay: calc(var(--stagger, 0) * 0.1s);
 }
 
 .card.reveal.is-visible {
   animation-play-state: running;
+}
+
+/* ─── Enhanced hero blob with additional animations ───────────────────────── */
+@keyframes blobPulse {
+  0%, 100% { transform: scale(1) translate(0, 0); }
+  33% { transform: scale(1.08) translate(-10px, 10px); }
+  66% { transform: scale(0.98) translate(10px, -10px); }
+}
+
+.hero-blob {
+  animation: float 7s ease-in-out infinite, blobPulse 6s ease-in-out infinite;
+}
+
+.hero-blob-2 {
+  animation: floatSlow 11s ease-in-out infinite, blobPulse 8s ease-in-out infinite;
+}
+
+.hero-blob::before {
+  content: '';
+  position: absolute;
+  inset: -20px;
+  background: inherit;
+  border-radius: inherit;
+  filter: blur(70px);
+  opacity: 0.6;
+  animation: float 9s ease-in-out infinite reverse;
 }
 
 /* ─── Hero entrance animations ───────────────────────────────────────── */
@@ -198,11 +417,60 @@ a:hover { color: #79c0ff; }
 .hero-intro {
   animation: fadeInUp 0.7s cubic-bezier(0.22, 1, 0.36, 1) both;
   animation-delay: 0.1s;
+  position: relative;
+  z-index: 1;
+}
+
+.hero-intro::before {
+  content: '•';
+  display: inline-block;
+  width: 0;
+  height: 1.2em;
+  vertical-align: sub;
+  margin: 0 6px;
+  font-size: 24px;
+  color: var(--accent);
+  animation: pulseGlow 2s ease-in-out infinite;
 }
 
 .hero-name {
   animation: fadeInUp 0.7s cubic-bezier(0.22, 1, 0.36, 1) both;
   animation-delay: 0.22s;
+  position: relative;
+  z-index: 1;
+  text-shadow: 0 2px 12px rgba(88, 166, 255, 0.2);
+}
+
+.hero-name::before {
+  content: 'Zac Morgan';
+  position: absolute;
+  inset: 0;
+  color: var(--accent);
+  font-weight: 800;
+  z-index: -1;
+  background: linear-gradient(125deg, var(--accent), var(--accent-2), var(--accent));
+  background-size: 200% 100%;
+  -webkit-background-clip: text;
+  background-clip: text;
+  filter: blur(1px);
+  animation: gradientShift 3s ease-in-out infinite, shimmer 2s linear infinite;
+}
+
+.hero-role {
+  animation: fadeInUp 0.7s cubic-bezier(0.22, 1, 0.36, 1) both;
+  animation-delay: 0.34s;
+  position: relative;
+  text-shadow: 0 1px 8px rgba(139, 148, 158, 0.3);
+}
+
+.hero-desc {
+  animation: fadeInUp 0.7s cubic-bezier(0.22, 1, 0.36, 1) both;
+  animation-delay: 0.46s;
+}
+
+.hero-cta {
+  animation: fadeInUp 0.7s cubic-bezier(0.22, 1, 0.36, 1) both;
+  animation-delay: 0.58s;
 }
 
 .hero-role {
@@ -223,6 +491,24 @@ a:hover { color: #79c0ff; }
 .hero-stats {
   animation: fadeInUp 0.7s cubic-bezier(0.22, 1, 0.36, 1) both;
   animation-delay: 0.82s;
+}
+
+/* ─── Animated background grid lines ──────────────────────────────────────── */
+@keyframes gridLineGlow {
+  0%, 100% { opacity: 0.3; background-position: 0% 0%; }
+  50% { opacity: 0.6; background-position: 20% 100%; }
+}
+
+#hero .bg-grid {
+  position: absolute;
+  inset: 0;
+  background-image:
+    linear-gradient(rgba(88, 166, 255, 0.04) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(88, 166, 255, 0.04) 1px, transparent 1px);
+  background-size: 50px 50px;
+  background-position: center center;
+  animation: gridLineGlow 15s ease-in-out infinite;
+  pointer-events: none;
 }
 
 /* ─── Floating blob ──────────────────────────────────────────────────── */
@@ -255,6 +541,13 @@ a:hover { color: #79c0ff; }
 @keyframes slideDown {
   from { opacity: 0; transform: translateY(-12px); }
   to   { opacity: 1; transform: translateY(0); }
+}
+
+/* ─── Mobile menu items fade-in ───────────────────────────────────────── */
+.nav-mobile-menu a {
+  opacity: 0;
+  animation: slideDown 0.22s cubic-bezier(0.22, 1, 0.36, 1) both;
+  animation-delay: calc(var(--stagger, 0) * 0.05s);
 }
 
 .nav-mobile-menu {
@@ -314,10 +607,375 @@ a:hover { color: #79c0ff; }
   margin-left: 4px;
   vertical-align: middle;
   border-radius: 1px;
-  animation: blink 0.9s step-end infinite;
+  animation: blink 0.9s step-end infinite, blinkGlow 1.5s ease-in-out infinite;
+  box-shadow: 0 0 6px rgba(88, 166, 255, 0.5), 0 0 12px rgba(88, 166, 255, 0.3);
 }
 
 @keyframes blink {
   0%, 100% { opacity: 1; }
   50%       { opacity: 0; }
+}
+
+@keyframes blinkGlow {
+  0%, 100% { box-shadow: 0 0 6px rgba(88, 166, 255, 0.5), 0 0 12px rgba(88, 166, 255, 0.3); }
+  50%       { box-shadow: 0 0 10px rgba(88, 166, 255, 0.8), 0 0 18px rgba(88, 166, 255, 0.5); }
+}
+
+/* ─── Glitter/shimmer effect for tags ──────────────────────────────────── */
+@keyframes tagGlitter {
+  0% { transform: translateX(-100%); opacity: 0; }
+  10% { opacity: 1; }
+  90% { opacity: 1; }
+  100% { transform: translateX(100%); opacity: 0; }
+}
+
+/* ─── Animated number counters ─────────────────────────────────────────── */
+.hero-stats div:nth-child(1),
+.hero-stats div:nth-child(2),
+.hero-stats div:nth-child(3),
+.hero-stats div:nth-child(4) {
+  position: relative;
+}
+
+.hero-stats div::before {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background: linear-gradient(90deg, var(--accent), var(--accent-2));
+  animation: shimmer 2s linear infinite;
+}
+
+.hero-stats div {
+  background: linear-gradient(135deg, var(--accent), var(--accent-2));
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  animation: textGradientShift 3s ease-in-out infinite;
+}
+
+@keyframes textGradientShift {
+  0%, 100% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+}
+
+/* ─── Floating animation for hero stats ────────────────────────────────── */
+.hero-stats {
+  animation: float 4s ease-in-out infinite;
+  animation-delay: 1s;
+}
+
+.hero-stats div {
+  animation: float 5s ease-in-out infinite;
+  animation-delay: calc(var(--stagger, 0) * 0.15s);
+}
+
+/* ─── Gradient animated line for hero stats ────────────────────────────── */
+.hero-stats::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 1px;
+  background: linear-gradient(90deg, var(--accent), var(--accent-2), var(--accent));
+  background-size: 200% 100%;
+  animation: shimmer 2s linear infinite;
+}
+
+/* ─── Hero floating animations ─────────────────────────────────────────── */
+.hero-blob {
+  animation: float 7s ease-in-out infinite;
+  filter: blur(40px);
+  z-index: 0;
+}
+
+.hero-blob-2 {
+  animation: floatSlow 11s ease-in-out infinite;
+  filter: blur(50px);
+  z-index: 0;
+}
+
+.hero-blob::before,
+.hero-blob::after {
+  content: '';
+  position: absolute;
+  inset: -20px;
+  background: inherit;
+  border-radius: inherit;
+  filter: blur(60px);
+  opacity: 0.5;
+}
+
+/* ─── Subtle background gradient mesh ───────────────────────────────────── */
+@keyframes gradientShift {
+  0%, 100% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+}
+
+.bg-mesh {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  background: radial-gradient(600px circle at var(--x, 50%) var(--y, 50%), rgba(88, 166, 255, 0.03), transparent 50%),
+               radial-gradient(500px circle at calc(100% - 50%), rgba(63, 185, 80, 0.03), transparent 50%);
+  background-size: 150% 150%;
+  animation: gradientShift 20s ease-in-out infinite;
+  z-index: -1;
+}
+
+/* ─── Animated particle dots ────────────────────────────────────────────── */
+.dot {
+  position: absolute;
+  width: 4px;
+  height: 4px;
+  background: var(--accent);
+  border-radius: 50%;
+  opacity: 0;
+  animation: dotPulse 3.5s ease-in-out infinite;
+}
+
+@keyframes dotPulse {
+  0%, 100% { opacity: 0; transform: scale(0); }
+  50% { opacity: 0.6; transform: scale(1); }
+}
+
+/* ─── Text gradient effect ──────────────────────────────────────────────── */
+.text-gradient {
+  background: linear-gradient(135deg, var(--accent), var(--accent-2));
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  background-size: 200% 200%;
+  animation: gradientTextShift 3s ease infinite;
+}
+
+@keyframes gradientTextShift {
+  0%, 100% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+}
+
+/* ─── Experience card enhancements ────────────────────────────────────── */
+#experience .card {
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  padding: 28px;
+  transition: all 0.3s cubic-bezier(0.22, 1, 0.36, 1);
+  position: relative;
+  overflow: hidden;
+  background: linear-gradient(135deg, var(--bg-card), var(--bg-secondary));
+}
+
+#experience .card::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(135deg, rgba(88, 166, 255, 0.03), rgba(63, 185, 80, 0.03));
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+#experience .card:hover {
+  border-color: var(--accent);
+  background: var(--bg-card-hover);
+  box-shadow: 0 8px 32px rgba(88, 166, 255, 0.15);
+  transform: translateY(-4px);
+}
+
+#experience .card:hover::before {
+  opacity: 1;
+}
+
+#experience .card::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  background: linear-gradient(90deg, transparent, rgba(88, 166, 255, 0.08), transparent);
+  transform: translateX(-100%);
+  animation: shimmer 3s ease-in-out infinite;
+}
+
+/* ─── Animated bullet points in experience ──────────────────────────────── */
+#experience ul li {
+  position: relative;
+  padding-left: 24px;
+}
+
+#experience ul li::before {
+  content: '▸';
+  position: absolute;
+  left: 0;
+  color: var(--accent);
+  animation: pulseGlow 2s ease-in-out infinite;
+}
+
+#experience ul li:hover::before {
+  animation: ripple 0.6s ease-out infinite;
+}
+
+/* ─── Experience card reveal animation ──────────────────────────────────────── */
+#experience .card.reveal {
+  animation: cardReveal 0.55s cubic-bezier(0.22, 1, 0.36, 1) forwards paused;
+}
+
+#experience .card.reveal.is-visible {
+  animation-play-state: running;
+}
+
+/* ─── Timeline effect for work experience ───────────────────────────────────── */
+.timeline {
+  position: relative;
+  padding-left: 32px;
+  border-left: 2px solid var(--border);
+}
+
+.timeline::before {
+  content: '';
+  position: absolute;
+  left: -8px;
+  top: 0;
+  bottom: 0;
+  width: 2px;
+  background: linear-gradient(180deg, var(--border), var(--accent), var(--border));
+  background-size: 100% 300%;
+  animation: shimmer 3s linear infinite;
+}
+
+.timeline .card {
+  position: relative;
+  z-index: 1;
+}
+
+.timeline .card::before {
+  content: '';
+  position: absolute;
+  left: -22px;
+  top: 8px;
+  width: 16px;
+  height: 16px;
+  background: var(--bg-card);
+  border: 3px solid var(--accent);
+  border-radius: 50%;
+  box-shadow: 0 0 12px rgba(88, 166, 255, 0.3);
+  animation: pulseGlow 2s ease-in-out infinite;
+}
+
+/* Volunteering cards with subtle gradient ───────────────────────────────── */
+#experience .card:nth-child(n+5) {
+  background: linear-gradient(135deg, var(--bg-card), var(--bg-secondary));
+}
+
+#experience .card:nth-child(n+5)::after {
+  background: linear-gradient(90deg, transparent, rgba(63, 185, 80, 0.08), transparent);
+}
+
+/* ─── Glitch effect for dramatic titles ─────────────────────────────────── */
+@keyframes glitchSkew {
+  0%, 100% { transform: skew(0deg); }
+  25% { transform: skew(-2deg); }
+  75% { transform: skew(2deg); }
+}
+
+.glitch-effect {
+  position: relative;
+  animation: glitchSkew 3s ease-in-out infinite;
+}
+
+.glitch-effect::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(90deg, transparent, rgba(88, 166, 255, 0.15), transparent);
+  transform: translateX(-100%);
+  animation: slideAcross 1.5s linear infinite;
+}
+
+@keyframes slideAcross {
+  0% { transform: translateX(-100%); }
+  100% { transform: translateX(100%); }
+}
+
+/* ─── Smooth parallax cards ────────────────────────────────────────────── */
+@keyframes parallax {
+  from { transform: translateY(0); }
+  to { transform: translateY(-16px); }
+}
+
+#projects .card:hover {
+  animation: parallax 0.8s ease-out infinite;
+}
+
+/* ─── Section divider waves ────────────────────────────────────────────── */
+.section-divider {
+  position: relative;
+  width: 100%;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, var(--border), transparent);
+  margin: 64px 0;
+}
+
+.section-divider::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: -50%;
+  width: 200%;
+  height: 2px;
+  background: linear-gradient(90deg, transparent, var(--accent), transparent);
+  animation: shimmer 3s ease-in-out infinite;
+}
+
+.section-divider::after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: -50%;
+  width: 200%;
+  height: 2px;
+  background: linear-gradient(90deg, transparent, rgba(88, 166, 255, 0.2), transparent);
+  animation: wave 4s ease-in-out infinite;
+}
+
+@keyframes wave {
+  0%, 100% { transform: translateX(0) rotate(0deg); }
+  50% { transform: translateX(50px) rotate(2deg); }
+}
+
+@keyframes shimmer {
+  0%, 100% { transform: translateX(-100%); }
+  50% { transform: translateX(100%); }
+}
+
+/* ─── Skill bar fill animation ──────────────────────────────────────────── */
+.skill-bar {
+  height: 6px;
+  background: var(--border);
+  border-radius: 3px;
+  overflow: hidden;
+  margin-top: 8px;
+}
+
+.skill-progress {
+  height: 100%;
+  background: var(--accent);
+  border-radius: 3px;
+  position: relative;
+  overflow: hidden;
+}
+
+.skill-progress::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(90deg, var(--accent), var(--accent-2));
+  animation: shimmer 2s linear infinite;
+}
+
+@keyframes shimmer {
+  0% { transform: translateX(-100%); }
+  100% { transform: translateX(100%); }
 }
